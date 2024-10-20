@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Patch 7cdab81f4db827b8c5224d6113ba85a5d28d8522</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../patch.css">
+<link rel="stylesheet" type="text/css" href="../../layout/flex.css">
+<link rel="stylesheet" type="text/css" href="../../custom.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<a 
+class="header_item "
+href="../../../readme.html"><img 
+class="logo_image" src="../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../index_page.html"><img 
+class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a>
+<a href="../../../doc_src/patches/7cdab81f4db827b8c5224d6113ba85a5d28d8522.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+
+<img class="headerNavArrows" src="../../layout/pict/previous_page_h21px_inactive.png"
+alt="No back">
+
+<img class="headerNavArrows" src="../../layout/pict/next_page_h21px_inactive.png"
+alt="No next">
+
+<span class="headerTitle">Patch 7cdab81f4db827b8c5224d6113ba85a5d28d8522</span>
+
+</div>
+
+<h1 style="width: unset; max-width: unset;">Patch 7cdab81f4db827b8c5224d6113ba85a5d28d8522</h1>
+
+<p><strong>Commit message:</strong> 
+study notes updated</p>
+<div class="patch_block">
+
+<span class="diff">diff --git a/code/spring-sm-study/module01/pom.xml b/code/spring-sm-study/module01/pom.xml</span><br />
+
+<span class="index">index 4fc74b6..c0b70b4 100644</span><br />
+
+<span class="tree_minuses">--- a/code/spring-sm-study/module01/pom.xml</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/module01/pom.xml</span><br />
+
+<span class="two_ats">@@ -14,8 +14,8 @@</span><br />
+
+<span>     &lt;artifactId&gt;module01&lt;/artifactId&gt;</span><br />
+
+<span> </span><br />
+
+<span>     &lt;properties&gt;</span><br />
+
+<del>-        &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;</del><br />
+
+<del>-        &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;</del><br />
+
+<ins>+        &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;</ins><br />
+
+<ins>+        &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;</ins><br />
+
+<span>         &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br />
+
+<span>     &lt;/properties&gt;</span><br />
+
+<span> </span><br />
+
+<span class="diff">diff --git a/code/spring-sm-study/pom.xml b/code/spring-sm-study/pom.xml</span><br />
+
+<span class="index">index 9c00206..ed81982 100644</span><br />
+
+<span class="tree_minuses">--- a/code/spring-sm-study/pom.xml</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/pom.xml</span><br />
+
+<span class="two_ats">@@ -16,8 +16,8 @@</span><br />
+
+<span>     &lt;/modules&gt;</span><br />
+
+<span> </span><br />
+
+<span>     &lt;properties&gt;</span><br />
+
+<del>-        &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;</del><br />
+
+<del>-        &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;</del><br />
+
+<ins>+        &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;</ins><br />
+
+<ins>+        &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;</ins><br />
+
+<span>         &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br />
+
+<span>     &lt;/properties&gt;</span><br />
+
+<span> </span><br />
+
+<span class="diff">diff --git a/doc/content/code/spring-sm-study/dependency_tree.txt.html b/doc/content/code/spring-sm-study/dependency_tree.txt.html</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..d1453e5</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/doc/content/code/spring-sm-study/dependency_tree.txt.html</span><br />
+
+<span class="two_ats">@@ -0,0 +1,86 @@</span><br />
+
+<ins>+&lt;!DOCTYPE html&gt;</ins><br />
+
+<ins>+&lt;html&gt;</ins><br />
+
+<ins>+&lt;head&gt;&lt;title&gt;dependency_tree.txt&lt;/title&gt;</ins><br />
+
+<ins>+&lt;meta charset=&quot;utf-8&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;../../../favicon.png&quot;/&gt;</ins><br />
+
+<ins>+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, height=device-height, initial-scale=1.0&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../../layout/content.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../../layout/more_prog_langs.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../../themes/light/content_theme.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../../themes/light/more_prog_langs_theme.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../../layout/layout.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../../themes/light/layout_theme.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../../custom.css&quot;&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../../layout/flex.css&quot;&gt;</ins><br />
+
+<ins>+&lt;style&gt;</ins><br />
+
+<ins>+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}</ins><br />
+
+<ins>+&lt;/style&gt;</ins><br />
+
+<ins>+&lt;/head&gt;</ins><br />
+
+<ins>+&lt;body&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;div class=&quot;header&quot;&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;a </ins><br />
+
+<ins>+class=&quot;header_item &quot;</ins><br />
+
+<ins>+href=&quot;../../../../readme.html&quot;&gt;&lt;img </ins><br />
+
+<ins>+class=&quot;logo_image&quot; src=&quot;../../../favicon.png&quot; /&gt;&lt;/a&gt;&lt;a </ins><br />
+
+<ins>+class=&quot;header_item toggle_wide_only_inline&quot;</ins><br />
+
+<ins>+href=&quot;../../../../readme.html&quot;&gt;&lt;span class=&quot;&quot;&gt;Home&lt;/span&gt;&lt;/a&gt;&lt;a </ins><br />
+
+<ins>+class=&quot;header_item toggle_wide_only_inline&quot;</ins><br />
+
+<ins>+href=&quot;../../index_page.html&quot;&gt;&lt;span class=&quot;&quot;&gt;Index&lt;/span&gt;&lt;/a&gt;&lt;a </ins><br />
+
+<ins>+class=&quot;header_item toggle_narrow_only_inline&quot;</ins><br />
+
+<ins>+href=&quot;../../index_page.html&quot;&gt;&lt;img </ins><br />
+
+<ins>+class=&quot;header_image index_image&quot; src=&quot;../../../layout/pict/search.png&quot; /&gt;&lt;/a&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;source_file inactive toggle_wide_only_inline&quot;&gt;&amp;lt;/&amp;gt;&lt;/span&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;img class=&quot;headerNavArrows&quot; src=&quot;../../../layout/pict/previous_page_h21px_inactive.png&quot;/&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;img class=&quot;headerNavArrows&quot; src=&quot;../../../layout/pict/next_page_h21px_inactive.png&quot;/&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;headerTitle&quot;&gt;dependency_tree.txt&lt;/span&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;/div&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;p&gt;&lt;strong&gt;Path:&lt;/strong&gt; spring-sm-study/dependency_tree.txt&lt;/p&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[INFO] Scanning for projects...</ins><br />
+
+<ins>+[INFO] ------------------------------------------------------------------------</ins><br />
+
+<ins>+[INFO] Reactor Build Order:</ins><br />
+
+<ins>+[INFO] </ins><br />
+
+<ins>+[INFO] spring-sm-study                                                    [pom]</ins><br />
+
+<ins>+[INFO] module01                                                           [jar]</ins><br />
+
+<ins>+[INFO] </ins><br />
+
+<ins>+[INFO] ---------------&amp;lt; world.spring-sm-study:spring-sm-study &amp;gt;----------------</ins><br />
+
+<ins>+[INFO] Building spring-sm-study 1.0-SNAPSHOT                              [1/2]</ins><br />
+
+<ins>+[INFO]   from pom.xml</ins><br />
+
+<ins>+[INFO] --------------------------------[ pom ]---------------------------------</ins><br />
+
+<ins>+[INFO] </ins><br />
+
+<ins>+[INFO] --- dependency:2.8:tree (default-cli) @ spring-sm-study ---</ins><br />
+
+<ins>+[INFO] world.spring-sm-study:spring-sm-study:pom:1.0-SNAPSHOT</ins><br />
+
+<ins>+[INFO] </ins><br />
+
+<ins>+[INFO] -------------------&amp;lt; world.spring-sm-study:module01 &amp;gt;-------------------</ins><br />
+
+<ins>+[INFO] Building module01 1.0-SNAPSHOT                                     [2/2]</ins><br />
+
+<ins>+[INFO]   from module01\pom.xml</ins><br />
+
+<ins>+[INFO] --------------------------------[ jar ]---------------------------------</ins><br />
+
+<ins>+[INFO] </ins><br />
+
+<ins>+[INFO] --- dependency:2.8:tree (default-cli) @ module01 ---</ins><br />
+
+<ins>+[INFO] world.spring-sm-study:module01:jar:1.0-SNAPSHOT</ins><br />
+
+<ins>+[INFO] ------------------------------------------------------------------------</ins><br />
+
+<ins>+[INFO] Reactor Summary for spring-sm-study 1.0-SNAPSHOT:</ins><br />
+
+<ins>+[INFO] </ins><br />
+
+<ins>+[INFO] spring-sm-study .................................... SUCCESS [  0.457 s]</ins><br />
+
+<ins>+[INFO] module01 ........................................... SUCCESS [  0.017 s]</ins><br />
+
+<ins>+[INFO] ------------------------------------------------------------------------</ins><br />
+
+<ins>+[INFO] BUILD SUCCESS</ins><br />
+
+<ins>+[INFO] ------------------------------------------------------------------------</ins><br />
+
+<ins>+[INFO] Total time:  0.663 s</ins><br />
+
+<ins>+[INFO] Finished at: 2024-10-20T16:27:08+02:00</ins><br />
+
+<ins>+[INFO] ------------------------------------------------------------------------</ins><br />
+
+<ins>+&lt;/code&gt;&lt;/pre&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;p&gt;&lt;/p&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;/body&gt;</ins><br />
+
+<ins>+&lt;/html&gt;</ins><br />
+
+<span class="diff">diff --git a/doc/content/index_cache.json b/doc/content/index_cache.json</span><br />
+
+<span class="index">index 1eb5e08..0733f4f 100644</span><br />
+
+<span class="tree_minuses">--- a/doc/content/index_cache.json</span><br />
+
+<span class="tree_pluses">+++ b/doc/content/index_cache.json</span><br />
+
+<span class="two_ats">@@ -17,5 +17,6 @@</span><br />
+
+<span>       &quot;title&quot;: &quot;Spring Statemachine&quot;</span><br />
+
+<span>     }</span><br />
+
+<span>   ],</span><br />
+
+<del>-  &quot;doc/content/sections/ref/references.html&quot;: []</del><br />
+
+<ins>+  &quot;doc/content/sections/ref/references.html&quot;: [],</ins><br />
+
+<ins>+  &quot;doc/content/patches/1e72c7abe7c17ed29c88256faae6072ef08c92ab.html&quot;: []</ins><br />
+
+<span> }</span><br />
+
+<span class="back_slash">\ No newline at end of file</span><br />
+
+<span class="diff">diff --git a/doc/content/patches/1e72c7abe7c17ed29c88256faae6072ef08c92ab.html b/doc/content/patches/1e72c7abe7c17ed29c88256faae6072ef08c92ab.html</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..c8f4590</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/doc/content/patches/1e72c7abe7c17ed29c88256faae6072ef08c92ab.html</span><br />
+
+<span class="two_ats">@@ -0,0 +1,221 @@</span><br />
+
+<ins>+&lt;!DOCTYPE html&gt;</ins><br />
+
+<ins>+&lt;html lang=&quot;en&quot;&gt;</ins><br />
+
+<ins>+&lt;head&gt;&lt;title&gt;Patch 1e72c7abe7c17ed29c88256faae6072ef08c92ab&lt;/title&gt;</ins><br />
+
+<ins>+&lt;meta charset=&quot;utf-8&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;../../favicon.png&quot;&gt;</ins><br />
+
+<ins>+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, height=device-height, initial-scale=1.0&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../layout/content.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../themes/light/content_theme.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../layout/layout.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../themes/light/layout_theme.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../patch.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../layout/flex.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../../custom.css&quot;&gt;</ins><br />
+
+<ins>+&lt;style&gt;</ins><br />
+
+<ins>+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}</ins><br />
+
+<ins>+&lt;/style&gt;</ins><br />
+
+<ins>+&lt;/head&gt;</ins><br />
+
+<ins>+&lt;body&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;div class=&quot;header&quot;&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;a </ins><br />
+
+<ins>+class=&quot;header_item &quot;</ins><br />
+
+<ins>+href=&quot;../../../readme.html&quot;&gt;&lt;img </ins><br />
+
+<ins>+class=&quot;logo_image&quot; src=&quot;../../favicon.png&quot; alt=&quot;Logo&quot;&gt;&lt;/a&gt;&lt;a </ins><br />
+
+<ins>+class=&quot;header_item toggle_wide_only_inline&quot;</ins><br />
+
+<ins>+href=&quot;../../../readme.html&quot;&gt;&lt;span class=&quot;&quot;&gt;Home&lt;/span&gt;&lt;/a&gt;&lt;a </ins><br />
+
+<ins>+class=&quot;header_item toggle_wide_only_inline&quot;</ins><br />
+
+<ins>+href=&quot;../index_page.html&quot;&gt;&lt;span class=&quot;&quot;&gt;Index&lt;/span&gt;&lt;/a&gt;&lt;a </ins><br />
+
+<ins>+class=&quot;header_item toggle_narrow_only_inline&quot;</ins><br />
+
+<ins>+href=&quot;../index_page.html&quot;&gt;&lt;img </ins><br />
+
+<ins>+class=&quot;header_image index_image&quot; src=&quot;../../layout/pict/search.png&quot; alt=&quot;Index&quot;&gt;&lt;/a&gt;</ins><br />
+
+<ins>+&lt;a href=&quot;../../../doc_src/patches/1e72c7abe7c17ed29c88256faae6072ef08c92ab.txt&quot; class=&quot;source_file toggle_wide_only_inline&quot; title=&quot;Source text&quot;&gt;&amp;lt;/&amp;gt;&lt;/a&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;img class=&quot;headerNavArrows&quot; src=&quot;../../layout/pict/previous_page_h21px_inactive.png&quot;</ins><br />
+
+<ins>+alt=&quot;No back&quot;&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;img class=&quot;headerNavArrows&quot; src=&quot;../../layout/pict/next_page_h21px_inactive.png&quot;</ins><br />
+
+<ins>+alt=&quot;No next&quot;&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;headerTitle&quot;&gt;Patch 1e72c7abe7c17ed29c88256faae6072ef08c92ab&lt;/span&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;/div&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;h1 style=&quot;width: unset; max-width: unset;&quot;&gt;Patch 1e72c7abe7c17ed29c88256faae6072ef08c92ab&lt;/h1&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;p&gt;&lt;strong&gt;Commit message:&lt;/strong&gt; </ins><br />
+
+<ins>+module01 initiated&lt;/p&gt;</ins><br />
+
+<ins>+&lt;div class=&quot;patch_block&quot;&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;diff&quot;&gt;diff --git a/.gitignore b/.gitignore&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span&gt;new file mode 100644&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;index&quot;&gt;index 0000000..a5a5f78&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_minuses&quot;&gt;--- /dev/null&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_pluses&quot;&gt;+++ b/.gitignore&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;two_ats&quot;&gt;@@ -0,0 +1 @@&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+/code/**/.idea/*&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;diff&quot;&gt;diff --git a/code/spring-sm-study/module01/pom.xml b/code/spring-sm-study/module01/pom.xml&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span&gt;new file mode 100644&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;index&quot;&gt;index 0000000..4fc74b6&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_minuses&quot;&gt;--- /dev/null&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_pluses&quot;&gt;+++ b/code/spring-sm-study/module01/pom.xml&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;two_ats&quot;&gt;@@ -0,0 +1,22 @@&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+         xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+         xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+            http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;parent&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;groupId&amp;gt;world.spring-sm-study&amp;lt;/groupId&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;artifactId&amp;gt;spring-sm-study&amp;lt;/artifactId&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;/parent&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;artifactId&amp;gt;module01&amp;lt;/artifactId&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;properties&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;maven.compiler.source&amp;gt;8&amp;lt;/maven.compiler.source&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;maven.compiler.target&amp;gt;8&amp;lt;/maven.compiler.target&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;/properties&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&amp;lt;/project&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;diff&quot;&gt;diff --git a/code/spring-sm-study/module01/src/main/java/springsmstudy/Main.java b/code/spring-sm-study/module01/src/main/java/springsmstudy/Main.java&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span&gt;new file mode 100644&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;index&quot;&gt;index 0000000..ae806d5&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_minuses&quot;&gt;--- /dev/null&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_pluses&quot;&gt;+++ b/code/spring-sm-study/module01/src/main/java/springsmstudy/Main.java&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;two_ats&quot;&gt;@@ -0,0 +1,7 @@&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+package springsmstudy;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+public class Main {&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    public static void main(String[] args) {&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        System.out.println(&amp;quot;Hello world 01!&amp;quot;);&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    }&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+}&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;diff&quot;&gt;diff --git a/code/spring-sm-study/pom.xml b/code/spring-sm-study/pom.xml&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span&gt;new file mode 100644&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;index&quot;&gt;index 0000000..9c00206&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_minuses&quot;&gt;--- /dev/null&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_pluses&quot;&gt;+++ b/code/spring-sm-study/pom.xml&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;two_ats&quot;&gt;@@ -0,0 +1,27 @@&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+         xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+         xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+            http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;groupId&amp;gt;world.spring-sm-study&amp;lt;/groupId&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;artifactId&amp;gt;spring-sm-study&amp;lt;/artifactId&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;packaging&amp;gt;pom&amp;lt;/packaging&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;modules&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;module&amp;gt;module01&amp;lt;/module&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;/modules&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;properties&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;maven.compiler.source&amp;gt;8&amp;lt;/maven.compiler.source&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;maven.compiler.target&amp;gt;8&amp;lt;/maven.compiler.target&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;/properties&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;build&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;directory&amp;gt;${TMP_MAVEN_BUILDS_DIR}${project.artifactId}&amp;lt;/directory&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;/build&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&amp;lt;/project&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;/div&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;p&gt;&lt;/p&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;/body&gt;</ins><br />
+
+<ins>+&lt;/html&gt;</ins><br />
+
+<span class="diff">diff --git a/doc/content/sections/ref/references.html b/doc/content/sections/ref/references.html</span><br />
+
+<span class="index">index 20cb109..9bb04b4 100644</span><br />
+
+<span class="tree_minuses">--- a/doc/content/sections/ref/references.html</span><br />
+
+<span class="tree_pluses">+++ b/doc/content/sections/ref/references.html</span><br />
+
+<span class="two_ats">@@ -70,6 +70,16 @@ alt=&quot;No next&quot;&gt;</span><br />
+
+<span> &lt;p style=&quot;font-size:44px;font-weight:bold;margin:0 0 30px 0;&quot;&gt;References&lt;/p&gt;</span><br />
+
+<span> </span><br />
+
+<span> &lt;p&gt;&lt;a name=&quot;spring_home&quot;&gt;&lt;/a&gt;&lt;span class=&quot;refDef&quot;&gt;[spring_home]&lt;/span&gt; Spring official site: &lt;a href=&quot;https://spring.io/&quot;&gt;https://spring.io/&lt;/a&gt;&lt;/p&gt;</span><br />
+
+<ins>+&lt;p&gt;&lt;a name=&quot;spring_sm_guide_bae&quot;&gt;&lt;/a&gt;&lt;span class=&quot;refDef&quot;&gt;[spring_sm_guide_bae]&lt;/span&gt; Baeldung:</ins><br />
+
+<ins>+&lt;a href=&quot;https://www.baeldung.com/spring-state-machine&quot;&gt;A Guide to the Spring State Machine Project&lt;/a&gt;&lt;/p&gt;</ins><br />
+
+<ins>+&lt;p&gt;&lt;a name=&quot;spring_sm_get_started_sfg_yt&quot;&gt;&lt;/a&gt;&lt;span class=&quot;refDef&quot;&gt;[spring_sm_get_started_sfg_yt]&lt;/span&gt; Youtube:</ins><br />
+
+<ins>+&lt;a href=&quot;https://youtu.be/A-dVgRV5-Bw?si=vrUMcamH17KRK2rf&quot;&gt;Getting Started with Spring State Machine&lt;/a&gt;,  &lt;br /&gt;</ins><br />
+
+<ins>+by &lt;a href=&quot;https://www.youtube.com/@SpringframeworkGuru&quot;&gt;Spring Framework Guru&lt;/a&gt;,  &lt;br /&gt;</ins><br />
+
+<ins>+Dec 7, 2019, duration 1:36:48&lt;/p&gt;</ins><br />
+
+<ins>+&lt;p&gt;&lt;a name=&quot;spring_tips_sm_sd_yt&quot;&gt;&lt;/a&gt;&lt;span class=&quot;refDef&quot;&gt;[spring_tips_sm_sd_yt]&lt;/span&gt; Youtube:</ins><br />
+
+<ins>+&lt;a href=&quot;https://youtu.be/M4Aa45Gpc4w?si=eqYTK5vg5SkirU5H&quot;&gt;Spring Tips: Spring Statemachine&lt;/a&gt;,  &lt;br /&gt;</ins><br />
+
+<ins>+by &lt;a href=&quot;https://www.youtube.com/@SpringSourceDev&quot;&gt;SpringDeveloper&lt;/a&gt;,  &lt;br /&gt;</ins><br />
+
+<ins>+Apr 25, 2018, duration 59:45&lt;/p&gt;</ins><br />
+
+<span> &lt;p&gt;&amp;nbsp;&lt;/p&gt;</span><br />
+
+<span> &lt;hr /&gt;</span><br />
+
+<span> </span><br />
+
+<span class="diff">diff --git a/doc/content/sections/spring_statemachine.html b/doc/content/sections/spring_statemachine.html</span><br />
+
+<span class="index">index 3ef4294..fde3cce 100644</span><br />
+
+<span class="tree_minuses">--- a/doc/content/sections/spring_statemachine.html</span><br />
+
+<span class="tree_pluses">+++ b/doc/content/sections/spring_statemachine.html</span><br />
+
+<span class="two_ats">@@ -72,6 +72,7 @@ src=&quot;../../layout/pict/next_page_h21px.png&quot; alt=&quot;Next&quot;&gt;&lt;/a&gt;</span><br />
+
+<span> &lt;div class=&quot;toc&quot;&gt;</span><br />
+
+<span> &lt;ul&gt;</span><br />
+
+<span> &lt;li&gt;&lt;a href=&quot;#materials&quot;&gt;Materials&lt;/a&gt;&lt;/li&gt;</span><br />
+
+<ins>+&lt;li&gt;&lt;a href=&quot;#project-setup&quot;&gt;Project setup&lt;/a&gt;&lt;/li&gt;</ins><br />
+
+<span> &lt;/ul&gt;</span><br />
+
+<span> &lt;/div&gt;</span><br />
+
+<span> &lt;hr /&gt;</span><br />
+
+<span class="two_ats">@@ -82,6 +83,28 @@ src=&quot;../../layout/pict/next_page_h21px.png&quot; alt=&quot;Next&quot;&gt;&lt;/a&gt;</span><br />
+
+<span> &lt;li&gt;&lt;a href=&quot;https://spring.io/projects/spring-statemachine#learn&quot;&gt;Overview&lt;/a&gt;&lt;/li&gt;</span><br />
+
+<span> &lt;li&gt;&lt;a href=&quot;https://docs.spring.io/spring-statemachine/docs/4.0.0/reference/index.html&quot;&gt;Reference Documentation&lt;/a&gt;&lt;/li&gt;</span><br />
+
+<span> &lt;/ul&gt;</span><br />
+
+<ins>+&lt;hr /&gt;</ins><br />
+
+<ins>+&lt;h1 id=&quot;project-setup&quot;&gt;Project setup&lt;/h1&gt;</ins><br />
+
+<ins>+&lt;p&gt;A multi-module project is going to be used for the study. The IntelliJ IDEA is used for the project</ins><br />
+
+<ins>+and the one module initiation:&lt;/p&gt;</ins><br />
+
+<ins>+&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;../../pict/idea_initiate_multimodule_project.png&quot; /&gt;</ins><br />
+
+<ins>+&lt;img alt=&quot;&quot; src=&quot;../../pict/idea_initiate_multimodule_project_1.png&quot; /&gt;&lt;/p&gt;</ins><br />
+
+<ins>+&lt;p&gt;After some manual cleanup the following result is obtained:&lt;/p&gt;</ins><br />
+
+<ins>+&lt;blockquote&gt;</ins><br />
+
+<ins>+&lt;p&gt;Git commit: &lt;a href=&quot;../patches/1e72c7abe7c17ed29c88256faae6072ef08c92ab.html&quot;&gt;&lt;code&gt;1e72c7abe7c17ed29c88256faae6072ef08c92ab&lt;/code&gt;&lt;/a&gt;</ins><br />
+
+<ins>+module01 initiated&lt;/p&gt;</ins><br />
+
+<ins>+&lt;/blockquote&gt;</ins><br />
+
+<ins>+&lt;p&gt;The following setting in the POM will carry out the assembled artifacts from our code base</ins><br />
+
+<ins>+(the variable &lt;code&gt;TMP_MAVEN_BUILDS_DIR&lt;/code&gt; must be set in the system):&lt;/p&gt;</ins><br />
+
+<ins>+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;    ...</ins><br />
+
+<ins>+    &amp;lt;build&amp;gt;</ins><br />
+
+<ins>+        &amp;lt;directory&amp;gt;${TMP_MAVEN_BUILDS_DIR}${project.artifactId}&amp;lt;/directory&amp;gt;</ins><br />
+
+<ins>+    &amp;lt;/build&amp;gt;</ins><br />
+
+<ins>+    ...&lt;/code&gt;&lt;/pre&gt;</ins><br />
+
+<ins>+&lt;p&gt;The following command generates the dependency tree that shows that there are no dependencies used:&lt;/p&gt;</ins><br />
+
+<ins>+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-wrapped-shell&quot;&gt;&amp;gt;mvn dependency:tree | find /v &quot;[WARNING] Parameter &#x27;localRepository&#x27;&quot; &amp;gt; dependency_tree.txt&lt;/code&gt;&lt;/pre&gt;</ins><br />
+
+<ins>+&lt;p&gt;Filtering is used to avoid some unrelated messages specific to the current local environment.&lt;/p&gt;</ins><br />
+
+<ins>+&lt;p&gt;The result is &lt;a href=&quot;../code/spring-sm-study/dependency_tree.txt.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</ins><br />
+
+<span> &lt;p&gt;&amp;nbsp;&lt;/p&gt;</span><br />
+
+<span> &lt;hr /&gt;</span><br />
+
+<span> </span><br />
+
+<span class="diff">diff --git a/doc/patch.css b/doc/patch.css</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..5ededce</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/doc/patch.css</span><br />
+
+<span class="two_ats">@@ -0,0 +1,59 @@</span><br />
+
+<ins>+div.sidebar + p {</ins><br />
+
+<ins>+    font-size: 32px !important;</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+div.patch_block {</ins><br />
+
+<ins>+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;</ins><br />
+
+<ins>+    font-size: 16px;</ins><br />
+
+<ins>+    /* width: 886px; */</ins><br />
+
+<ins>+    word-break: break-word;</ins><br />
+
+<ins>+    background-color: aliceblue;</ins><br />
+
+<ins>+    padding: 7px;</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+div.patch_block span, div.patch_block ins, div.patch_block del {</ins><br />
+
+<ins>+    white-space: pre-wrap;</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+div.patch_block .diff {</ins><br />
+
+<ins>+    background-color: steelblue;</ins><br />
+
+<ins>+    display: inline-block;</ins><br />
+
+<ins>+    color: white;</ins><br />
+
+<ins>+    margin-top: 20px;</ins><br />
+
+<ins>+    margin-bottom: 10px;</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+div.patch_block .index {</ins><br />
+
+<ins>+    color: fuchsia;</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+div.patch_block .tree_minuses {</ins><br />
+
+<ins>+    color: red;</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+div.patch_block .tree_pluses {</ins><br />
+
+<ins>+    color: green;</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+div.patch_block .two_ats {</ins><br />
+
+<ins>+    color: darkorange;</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+div.patch_block ins {</ins><br />
+
+<ins>+    background-color: rgb(122, 248, 152);</ins><br />
+
+<ins>+    color: rgb(36, 41, 47);</ins><br />
+
+<ins>+    text-decoration: none;    </ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+div.patch_block del {</ins><br />
+
+<ins>+    background-color: rgb(252, 180, 172);</ins><br />
+
+<ins>+    color: rgb(36, 41, 47);</ins><br />
+
+<ins>+    text-decoration: none;</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+</ins><br />
+
+<span class="diff">diff --git a/doc/pict/idea_initiate_multimodule_project.png b/doc/pict/idea_initiate_multimodule_project.png</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..589f857</span><br />
+
+<span>Binary files /dev/null and b/doc/pict/idea_initiate_multimodule_project.png differ</span><br />
+
+<span class="diff">diff --git a/doc/pict/idea_initiate_multimodule_project_1.png b/doc/pict/idea_initiate_multimodule_project_1.png</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..82aa0e9</span><br />
+
+<span>Binary files /dev/null and b/doc/pict/idea_initiate_multimodule_project_1.png differ</span><br />
+
+<span class="diff">diff --git a/doc_src/patches/1e72c7abe7c17ed29c88256faae6072ef08c92ab.txt b/doc_src/patches/1e72c7abe7c17ed29c88256faae6072ef08c92ab.txt</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..f2abeb2</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/doc_src/patches/1e72c7abe7c17ed29c88256faae6072ef08c92ab.txt</span><br />
+
+<span class="two_ats">@@ -0,0 +1,172 @@</span><br />
+
+<ins>+&lt;!--VARIABLES {&quot;title&quot;: &quot;Patch 1e72c7abe7c17ed29c88256faae6072ef08c92ab&quot;}--&gt; </ins><br />
+
+<ins>+ </ins><br />
+
+<ins>+&lt;strong&gt;Commit message:&lt;/strong&gt; </ins><br />
+
+<ins>+module01 initiated</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+ </ins><br />
+
+<ins>+&lt;div class=&quot;patch_block&quot;&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;diff&quot;&gt;diff --git a/.gitignore b/.gitignore&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span&gt;new file mode 100644&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;index&quot;&gt;index 0000000..a5a5f78&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_minuses&quot;&gt;--- /dev/null&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_pluses&quot;&gt;+++ b/.gitignore&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;two_ats&quot;&gt;@@ -0,0 +1 @@&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+/code/**/.idea/*&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;diff&quot;&gt;diff --git a/code/spring-sm-study/module01/pom.xml b/code/spring-sm-study/module01/pom.xml&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span&gt;new file mode 100644&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;index&quot;&gt;index 0000000..4fc74b6&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_minuses&quot;&gt;--- /dev/null&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_pluses&quot;&gt;+++ b/code/spring-sm-study/module01/pom.xml&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;two_ats&quot;&gt;@@ -0,0 +1,22 @@&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+         xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+         xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+            http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;parent&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;groupId&amp;gt;world.spring-sm-study&amp;lt;/groupId&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;artifactId&amp;gt;spring-sm-study&amp;lt;/artifactId&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;/parent&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;artifactId&amp;gt;module01&amp;lt;/artifactId&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;properties&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;maven.compiler.source&amp;gt;8&amp;lt;/maven.compiler.source&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;maven.compiler.target&amp;gt;8&amp;lt;/maven.compiler.target&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;/properties&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&amp;lt;/project&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;diff&quot;&gt;diff --git a/code/spring-sm-study/module01/src/main/java/springsmstudy/Main.java b/code/spring-sm-study/module01/src/main/java/springsmstudy/Main.java&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span&gt;new file mode 100644&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;index&quot;&gt;index 0000000..ae806d5&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_minuses&quot;&gt;--- /dev/null&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_pluses&quot;&gt;+++ b/code/spring-sm-study/module01/src/main/java/springsmstudy/Main.java&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;two_ats&quot;&gt;@@ -0,0 +1,7 @@&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+package springsmstudy;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+public class Main {&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    public static void main(String[] args) {&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        System.out.println(&amp;quot;Hello world 01!&amp;quot;);&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    }&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+}&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;diff&quot;&gt;diff --git a/code/spring-sm-study/pom.xml b/code/spring-sm-study/pom.xml&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span&gt;new file mode 100644&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;index&quot;&gt;index 0000000..9c00206&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_minuses&quot;&gt;--- /dev/null&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;tree_pluses&quot;&gt;+++ b/code/spring-sm-study/pom.xml&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;two_ats&quot;&gt;@@ -0,0 +1,27 @@&lt;/span&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+         xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+         xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+            http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;groupId&amp;gt;world.spring-sm-study&amp;lt;/groupId&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;artifactId&amp;gt;spring-sm-study&amp;lt;/artifactId&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;packaging&amp;gt;pom&amp;lt;/packaging&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;modules&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;module&amp;gt;module01&amp;lt;/module&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;/modules&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;properties&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;maven.compiler.source&amp;gt;8&amp;lt;/maven.compiler.source&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;maven.compiler.target&amp;gt;8&amp;lt;/maven.compiler.target&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;/properties&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;build&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+        &amp;lt;directory&amp;gt;${TMP_MAVEN_BUILDS_DIR}${project.artifactId}&amp;lt;/directory&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+    &amp;lt;/build&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;ins&gt;+&amp;lt;/project&amp;gt;&lt;/ins&gt;&lt;br /&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;/div&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<span class="diff">diff --git a/doc_src/sections/ref/references.txt b/doc_src/sections/ref/references.txt</span><br />
+
+<span class="index">index 5454374..31eaef1 100644</span><br />
+
+<span class="tree_minuses">--- a/doc_src/sections/ref/references.txt</span><br />
+
+<span class="tree_pluses">+++ b/doc_src/sections/ref/references.txt</span><br />
+
+<span class="two_ats">@@ -2,6 +2,19 @@</span><br />
+
+<span> </span><br />
+
+<span> &lt;!--refdef spring_home--&gt; Spring official site: &lt;https://spring.io/&gt;</span><br />
+
+<span> </span><br />
+
+<ins>+&lt;!--refdef spring_sm_guide_bae--&gt; Baeldung:</ins><br />
+
+<ins>+[A Guide to the Spring State Machine Project](https://www.baeldung.com/spring-state-machine)</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;!--refdef spring_sm_get_started_sfg_yt--&gt; Youtube:</ins><br />
+
+<ins>+[Getting Started with Spring State Machine](https://youtu.be/A-dVgRV5-Bw?si=vrUMcamH17KRK2rf),    </ins><br />
+
+<ins>+by [Spring Framework Guru](https://www.youtube.com/@SpringframeworkGuru),    </ins><br />
+
+<ins>+Dec 7, 2019, duration 1:36:48</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;!--refdef spring_tips_sm_sd_yt--&gt; Youtube:</ins><br />
+
+<ins>+[Spring Tips: Spring Statemachine](https://youtu.be/M4Aa45Gpc4w?si=eqYTK5vg5SkirU5H),    </ins><br />
+
+<ins>+by [SpringDeveloper](https://www.youtube.com/@SpringSourceDev),    </ins><br />
+
+<ins>+Apr 25, 2018, duration 59:45</ins><br />
+
+<ins>+</ins><br />
+
+<span> </span><br />
+
+<span> </span><br />
+
+<span> </span><br />
+
+<span class="diff">diff --git a/doc_src/sections/spring_statemachine.txt b/doc_src/sections/spring_statemachine.txt</span><br />
+
+<span class="index">index 0174f8f..c60c3e2 100644</span><br />
+
+<span class="tree_minuses">--- a/doc_src/sections/spring_statemachine.txt</span><br />
+
+<span class="tree_pluses">+++ b/doc_src/sections/spring_statemachine.txt</span><br />
+
+<span class="two_ats">@@ -11,3 +11,39 @@</span><br />
+
+<span> - [Overview](https://spring.io/projects/spring-statemachine#learn)</span><br />
+
+<span> - [Reference Documentation](https://docs.spring.io/spring-statemachine/docs/4.0.0/reference/index.html)</span><br />
+
+<span> </span><br />
+
+<ins>+----------------------------------------------------------------------------------------------------</ins><br />
+
+<ins>+# Project setup</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+A multi-module project is going to be used for the study. The IntelliJ IDEA is used for the project</ins><br />
+
+<ins>+and the one module initiation:</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+![](&lt;!--path pict--&gt;idea_initiate_multimodule_project.png)</ins><br />
+
+<ins>+![](&lt;!--path pict--&gt;idea_initiate_multimodule_project_1.png)</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+After some manual cleanup the following result is obtained:</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;!--git [&quot;1e72c7abe7c17ed29c88256faae6072ef08c92ab&quot;, &quot;module01 initiated&quot;]--&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+The following setting in the POM will carry out the assembled artifacts from our code base</ins><br />
+
+<ins>+(the variable `TMP_MAVEN_BUILDS_DIR` must be set in the system):</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+````xml</ins><br />
+
+<ins>+    ...</ins><br />
+
+<ins>+    &lt;build&gt;</ins><br />
+
+<ins>+        &lt;directory&gt;${TMP_MAVEN_BUILDS_DIR}${project.artifactId}&lt;/directory&gt;</ins><br />
+
+<ins>+    &lt;/build&gt;</ins><br />
+
+<ins>+    ...</ins><br />
+
+<ins>+````</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+The following command generates the dependency tree that shows that there are no dependencies used:</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+````wrapped-shell</ins><br />
+
+<ins>+&gt;mvn dependency:tree | find /v &quot;[WARNING] Parameter &#x27;localRepository&#x27;&quot; &gt; dependency_tree.txt</ins><br />
+
+<ins>+````</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+Filtering is used to avoid some unrelated messages specific to the current local environment.</ins><br />
+
+<ins>+It&#x27;s very likely not required in other environments.</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+The result is [here](&lt;!--wrap_text spring-sm-study/dependency_tree.txt--&gt;).</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+</ins><br />
+
+<span class="diff">diff --git a/doc_src/templates/code.html b/doc_src/templates/code.html</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..3331ca9</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/doc_src/templates/code.html</span><br />
+
+<span class="two_ats">@@ -0,0 +1,57 @@</span><br />
+
+<ins>+&lt;!DOCTYPE html&gt;</ins><br />
+
+<ins>+&lt;html&gt;</ins><br />
+
+<ins>+&lt;head&gt;&lt;title&gt;{{title}}&lt;/title&gt;</ins><br />
+
+<ins>+&lt;meta charset=&quot;utf-8&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;{{resource_path}}favicon.png&quot;/&gt;</ins><br />
+
+<ins>+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, height=device-height, initial-scale=1.0&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}layout/content.css&quot;&gt;</ins><br />
+
+<ins>+{{#add_more_prog_langs}}&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}layout/more_prog_langs.css&quot;&gt;</ins><br />
+
+<ins>+{{/add_more_prog_langs}}</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}themes/{{theme}}/content_theme.css&quot;&gt;</ins><br />
+
+<ins>+{{#add_more_prog_langs}}&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}themes/{{theme}}/more_prog_langs_theme.css&quot;&gt;</ins><br />
+
+<ins>+{{/add_more_prog_langs}}</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}layout/layout.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}themes/{{theme}}/layout_theme.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}custom.css&quot;&gt;</ins><br />
+
+<ins>+{{{styles}}}</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}layout/flex.css&quot;&gt;</ins><br />
+
+<ins>+&lt;style&gt;</ins><br />
+
+<ins>+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}</ins><br />
+
+<ins>+&lt;/style&gt;</ins><br />
+
+<ins>+&lt;/head&gt;</ins><br />
+
+<ins>+&lt;body&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;div class=&quot;header&quot;&gt;</ins><br />
+
+<ins>+{{#logo}}&lt;span class=&quot;toggle_wide_only_inline&quot;&gt;{{{.}}}&lt;/span&gt;{{/logo}}</ins><br />
+
+<ins>+{{#header}}&lt;a </ins><br />
+
+<ins>+class=&quot;header_item{{#current}} selected{{/current}} {{{class}}}&quot;</ins><br />
+
+<ins>+href=&quot;{{link}}&quot;&gt;{{#title}}&lt;span class=&quot;{{{title_class}}}&quot;&gt;{{{.}}}&lt;/span&gt;{{/title}}{{#image}}&lt;img </ins><br />
+
+<ins>+class=&quot;{{{image_class}}}&quot; src=&quot;{{resource_path}}{{{.}}}&quot; /&gt;{{/image}}&lt;/a&gt;{{/header}}{{#header_wide_only}}&lt;a </ins><br />
+
+<ins>+class=&quot;header_item{{#current}} selected{{/current}} toggle_wide_only_inline&quot;</ins><br />
+
+<ins>+href=&quot;{{link}}&quot;&gt;{{#title}}&lt;span class=&quot;{{{title_class}}}&quot;&gt;{{{.}}}&lt;/span&gt;{{/title}}{{#image}}&lt;img </ins><br />
+
+<ins>+class=&quot;{{{image_class}}}&quot; src=&quot;{{resource_path}}{{{.}}}&quot; /&gt;{{/image}}&lt;/a&gt;{{/header_wide_only}}</ins><br />
+
+<ins>+{{#show_source_link}}</ins><br />
+
+<ins>+{{#source_file}}&lt;a href=&quot;{{{.}}}&quot; class=&quot;source_file toggle_wide_only_inline&quot; title=&quot;Source text&quot;&gt;&amp;lt;/&amp;gt;&lt;/a&gt;{{/source_file}}</ins><br />
+
+<ins>+{{^source_file}}&lt;span class=&quot;source_file inactive toggle_wide_only_inline&quot;&gt;&amp;lt;/&amp;gt;&lt;/span&gt;{{/source_file}}</ins><br />
+
+<ins>+{{/show_source_link}}</ins><br />
+
+<ins>+{{#nav.previous}}&lt;a href=&quot;{{link}}&quot; title=&quot;Previous: {{title}}&quot;&gt;&lt;img class=&quot;headerNavArrows&quot; src=&quot;{{resource_path}}layout/pict/previous_page_h21px.png&quot;/&gt;&lt;/a&gt;{{/nav.previous}}</ins><br />
+
+<ins>+{{^nav.previous}}&lt;img class=&quot;headerNavArrows&quot; src=&quot;{{resource_path}}layout/pict/previous_page_h21px_inactive.png&quot;/&gt;{{/nav.previous}}</ins><br />
+
+<ins>+{{#nav.next}}&lt;a href=&quot;{{link}}&quot; title=&quot;Next: {{title}}&quot;&gt;&lt;img class=&quot;headerNavArrows&quot; src=&quot;{{resource_path}}layout/pict/next_page_h21px.png&quot;/&gt;&lt;/a&gt;{{/nav.next}}</ins><br />
+
+<ins>+{{^nav.next}}&lt;img class=&quot;headerNavArrows&quot; src=&quot;{{resource_path}}layout/pict/next_page_h21px_inactive.png&quot;/&gt;{{/nav.next}}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;headerTitle&quot;&gt;{{title}}&lt;/span&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;/div&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;p&gt;&lt;strong&gt;Path:&lt;/strong&gt; {{wrap_code_path}}&lt;/p&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+{{{content}}}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;p&gt;{{#add_powered_by</ins><br />
+
+<ins>+}}&lt;span class=&quot;poweredBy&quot;&gt;Powered by &lt;a class=&quot;poweredByLink&quot; </ins><br />
+
+<ins>+href=&quot;https://github.com/arctrong/md2html&quot;&gt;{{exec_name}}&lt;/a&gt;{{#ad_exec_version</ins><br />
+
+<ins>+}} {{exec_version}}{{/ad_exec_version}}{{#add_generation_timestamp</ins><br />
+
+<ins>+}}{{generation_date}} {{generation_time}}{{/add_generation_timestamp}}&lt;/span&gt;{{/add_powered_by}}&lt;/p&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;/body&gt;</ins><br />
+
+<ins>+&lt;/html&gt;</ins><br />
+
+<span class="diff">diff --git a/doc_src/templates/patch.html b/doc_src/templates/patch.html</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..d0c4926</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/doc_src/templates/patch.html</span><br />
+
+<span class="two_ats">@@ -0,0 +1,60 @@</span><br />
+
+<ins>+&lt;!DOCTYPE html&gt;</ins><br />
+
+<ins>+&lt;html{{#html_lang}} lang=&quot;{{.}}&quot;{{/html_lang}}&gt;</ins><br />
+
+<ins>+&lt;head&gt;&lt;title&gt;{{title}}&lt;/title&gt;</ins><br />
+
+<ins>+&lt;meta charset=&quot;utf-8&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;{{resource_path}}favicon.png&quot;&gt;</ins><br />
+
+<ins>+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, height=device-height, initial-scale=1.0&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}layout/content.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}themes/{{theme}}/content_theme.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}layout/layout.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}themes/{{theme}}/layout_theme.css&quot;&gt;</ins><br />
+
+<ins>+{{{styles}}}</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}layout/flex.css&quot;&gt;</ins><br />
+
+<ins>+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{resource_path}}custom.css&quot;&gt;</ins><br />
+
+<ins>+&lt;style&gt;</ins><br />
+
+<ins>+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}</ins><br />
+
+<ins>+&lt;/style&gt;</ins><br />
+
+<ins>+&lt;/head&gt;</ins><br />
+
+<ins>+&lt;body&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;div class=&quot;header&quot;&gt;</ins><br />
+
+<ins>+{{#logo}}&lt;span class=&quot;toggle_wide_only_inline&quot;&gt;{{{.}}}&lt;/span&gt;{{/logo}}</ins><br />
+
+<ins>+{{#header}}&lt;a </ins><br />
+
+<ins>+class=&quot;header_item{{#current}} selected{{/current}} {{{class}}}&quot;</ins><br />
+
+<ins>+href=&quot;{{link}}&quot;&gt;{{#title}}&lt;span class=&quot;{{{title_class}}}&quot;&gt;{{{.}}}&lt;/span&gt;{{/title}}{{#image}}&lt;img </ins><br />
+
+<ins>+class=&quot;{{{image_class}}}&quot; src=&quot;{{resource_path}}{{{.}}}&quot; {{#image_alt}}alt=&quot;{{{.}}}&quot;{{/image_alt}}&gt;{{/image</ins><br />
+
+<ins>+}}&lt;/a&gt;{{/header}}{{#header_wide_only}}&lt;a </ins><br />
+
+<ins>+class=&quot;header_item{{#current}} selected{{/current}} toggle_wide_only_inline&quot;</ins><br />
+
+<ins>+href=&quot;{{link}}&quot;&gt;{{#title}}&lt;span class=&quot;{{{title_class}}}&quot;&gt;{{{.}}}&lt;/span&gt;{{/title}}{{#image}}&lt;img </ins><br />
+
+<ins>+class=&quot;{{{image_class}}}&quot; src=&quot;{{resource_path}}{{{.}}}&quot; /&gt;{{/image}}&lt;/a&gt;{{/header_wide_only}}</ins><br />
+
+<ins>+{{#show_source_link}}</ins><br />
+
+<ins>+{{#source_file}}&lt;a href=&quot;{{{.}}}&quot; class=&quot;source_file toggle_wide_only_inline&quot; title=&quot;Source text&quot;&gt;&amp;lt;/&amp;gt;&lt;/a&gt;{{/source_file}}</ins><br />
+
+<ins>+{{^source_file}}&lt;span class=&quot;source_file inactive toggle_wide_only_inline&quot;&gt;&amp;lt;/&amp;gt;&lt;/span&gt;{{/source_file}}</ins><br />
+
+<ins>+{{/show_source_link}}</ins><br />
+
+<ins>+{{#nav.previous}}&lt;a href=&quot;{{link}}&quot; title=&quot;Previous: {{title}}&quot;&gt;&lt;img class=&quot;headerNavArrows&quot;</ins><br />
+
+<ins>+src=&quot;{{resource_path}}layout/pict/previous_page_h21px.png&quot; alt=&quot;Back&quot;&gt;&lt;/a&gt;{{/nav.previous}}</ins><br />
+
+<ins>+{{^nav.previous}}&lt;img class=&quot;headerNavArrows&quot; src=&quot;{{resource_path}}layout/pict/previous_page_h21px_inactive.png&quot;</ins><br />
+
+<ins>+alt=&quot;No back&quot;&gt;{{/nav.previous}}</ins><br />
+
+<ins>+{{#nav.next}}&lt;a href=&quot;{{link}}&quot; title=&quot;Next: {{title}}&quot;&gt;&lt;img class=&quot;headerNavArrows&quot;</ins><br />
+
+<ins>+src=&quot;{{resource_path}}layout/pict/next_page_h21px.png&quot; alt=&quot;Next&quot;&gt;&lt;/a&gt;{{/nav.next}}</ins><br />
+
+<ins>+{{^nav.next}}&lt;img class=&quot;headerNavArrows&quot; src=&quot;{{resource_path}}layout/pict/next_page_h21px_inactive.png&quot;</ins><br />
+
+<ins>+alt=&quot;No next&quot;&gt;{{/nav.next}}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;span class=&quot;headerTitle&quot;&gt;{{title}}&lt;/span&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;/div&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;h1 style=&quot;width: unset; max-width: unset;&quot;&gt;{{title}}&lt;/h1&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+{{{content}}}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;p&gt;{{#add_powered_by</ins><br />
+
+<ins>+}}&lt;span class=&quot;poweredBy&quot;&gt;Powered by &lt;a class=&quot;poweredByLink&quot; </ins><br />
+
+<ins>+href=&quot;https://github.com/arctrong/md2html&quot;&gt;{{exec_name}}&lt;/a&gt;{{#ad_exec_version</ins><br />
+
+<ins>+}} {{exec_version}}{{/ad_exec_version}}{{#add_generation_timestamp</ins><br />
+
+<ins>+}}{{generation_date}} {{generation_time}}{{/add_generation_timestamp}}&lt;/span&gt;{{/add_powered_by}}&lt;/p&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;/body&gt;</ins><br />
+
+<ins>+&lt;/html&gt;</ins><br />
+
+<span class="diff">diff --git a/generate_patch.bat b/generate_patch.bat</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..d34106a</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/generate_patch.bat</span><br />
+
+<span class="two_ats">@@ -0,0 +1,16 @@</span><br />
+
+<ins>+@echo off</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+if [%1]==[] (</ins><br />
+
+<ins>+    echo Commit hash is not specified</ins><br />
+
+<ins>+    pause</ins><br />
+
+<ins>+    exit /b</ins><br />
+
+<ins>+)</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+set OUT=doc_src\patches\%1.txt</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+echo ^&lt;!--VARIABLES {&quot;title&quot;: &quot;Patch %1&quot;}--^&gt; &gt; %OUT%</ins><br />
+
+<ins>+echo. &gt;&gt; %OUT%</ins><br />
+
+<ins>+echo ^&lt;strong^&gt;Commit message:^&lt;/strong^&gt; &gt;&gt; %OUT%</ins><br />
+
+<ins>+call git log --format=%%%%B -n 1 %1 &gt;&gt; %OUT%</ins><br />
+
+<ins>+echo. &gt;&gt; %OUT%</ins><br />
+
+<ins>+git diff %1^^! | python &quot;%GIT_DIFF_2_HTML_HOME%\gitDiff2Html.py&quot; &gt;&gt; %OUT%</ins><br />
+
+<span class="diff">diff --git a/md2html_args.json b/md2html_args.json</span><br />
+
+<span class="index">index 15508d7..31dca99 100644</span><br />
+
+<span class="tree_minuses">--- a/md2html_args.json</span><br />
+
+<span class="tree_pluses">+++ b/md2html_args.json</span><br />
+
+<span class="two_ats">@@ -18,7 +18,11 @@</span><br />
+
+<span>             </span><br />
+
+<span>         { &quot;input-glob&quot;: &quot;sections/ref/*.txt&quot;, &quot;page-flows&quot;: [&quot;ref&quot;, &quot;nav&quot;], </span><br />
+
+<span>             &quot;title-from-variable&quot;: &quot;title&quot;, &quot;code-from-variable&quot;: &quot;code&quot;, </span><br />
+
+<del>-            &quot;sort-by-variable&quot;: &quot;SORT_ORDER&quot; }</del><br />
+
+<ins>+            &quot;sort-by-variable&quot;: &quot;SORT_ORDER&quot; },</ins><br />
+
+<ins>+            </ins><br />
+
+<ins>+        { &quot;input-root&quot;: &quot;doc_src&quot;, &quot;output-root&quot;: &quot;doc/content&quot;, &quot;add-link-css&quot;: [&quot;doc/patch.css&quot;],</ins><br />
+
+<ins>+        &quot;template&quot;: &quot;doc_src/templates/patch.html&quot;, &quot;input-glob&quot;: &quot;patches/*.txt&quot;,</ins><br />
+
+<ins>+            &quot;page-flows&quot;: [], &quot;title-from-variable&quot;: &quot;title&quot; }</ins><br />
+
+<span>     ],</span><br />
+
+<span>     &quot;plugins&quot;: {</span><br />
+
+<span>         &quot;variables&quot;: {</span><br />
+
+<span class="two_ats">@@ -34,7 +38,8 @@</span><br />
+
+<span>             &quot;markers&quot;: [&quot;path&quot;],</span><br />
+
+<span>             &quot;paths&quot;: {</span><br />
+
+<span>                 &quot;resource_path&quot;: &quot;doc/&quot;,</span><br />
+
+<del>-                &quot;pict&quot;: &quot;doc/pict/&quot;</del><br />
+
+<ins>+                &quot;pict&quot;: &quot;doc/pict/&quot;,</ins><br />
+
+<ins>+                &quot;patches&quot;: &quot;doc/content/patches/&quot;</ins><br />
+
+<span>             }</span><br />
+
+<span>         },</span><br />
+
+<span>         &quot;page-flows&quot;: {</span><br />
+
+<span class="two_ats">@@ -63,7 +68,16 @@</span><br />
+
+<span>                 &quot;&lt;a class=\&quot;ref\&quot; href=\&quot;&lt;!--page refs--&gt;#${1}\&quot;&gt;${1}&lt;/a&gt;&quot;,</span><br />
+
+<span>                 &quot;recursive&quot;: true },</span><br />
+
+<span>             { &quot;markers&quot;: [&quot;refdef&quot;], &quot;replace-with&quot;:</span><br />
+
+<del>-                &quot;&lt;a name=\&quot;${1}\&quot;&gt;&lt;/a&gt;&lt;span class=\&quot;refDef\&quot;&gt;[${1}]&lt;/span&gt;&quot; }</del><br />
+
+<del>-        ]</del><br />
+
+<ins>+                &quot;&lt;a name=\&quot;${1}\&quot;&gt;&lt;/a&gt;&lt;span class=\&quot;refDef\&quot;&gt;[${1}]&lt;/span&gt;&quot; },</ins><br />
+
+<ins>+            { &quot;markers&quot;: [&quot;git&quot;], &quot;replace-with&quot;:</ins><br />
+
+<ins>+                &quot;&gt; Git commit: [`${1}`](&lt;!--path patches--&gt;${1}.html)\n${2}&quot;,</ins><br />
+
+<ins>+                &quot;recursive&quot;: true }</ins><br />
+
+<ins>+        ],</ins><br />
+
+<ins>+        &quot;wrap-code&quot;: {</ins><br />
+
+<ins>+            &quot;wrap_text&quot;: {&quot;style&quot;: &quot;&quot;, &quot;input-root&quot;: &quot;code/&quot;, &quot;output-root&quot;: &quot;doc/content/code&quot;,</ins><br />
+
+<ins>+                &quot;template&quot;: &quot;doc_src/templates/code.html&quot;, &quot;variables&quot;: {&quot;noPageTitle&quot;: true}},</ins><br />
+
+<ins>+            &quot;wrap_java&quot;: {&quot;style&quot;: &quot;java&quot;, &quot;input-root&quot;: &quot;code/&quot;, &quot;output-root&quot;: &quot;doc/content/code&quot;,</ins><br />
+
+<ins>+                &quot;template&quot;: &quot;doc_src/templates/code.html&quot;, &quot;variables&quot;: {&quot;noPageTitle&quot;: true}}</ins><br />
+
+<ins>+        }</ins><br />
+
+<span>     }</span><br />
+
+<span> }</span><br />
+
+</div>
+
+<p></p>
+
+<p>&nbsp;</p>
+
+</body>
+</html>

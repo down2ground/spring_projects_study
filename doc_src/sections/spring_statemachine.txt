@@ -22,7 +22,7 @@ and the one module initiation:
 
 After some manual cleanup the following result is obtained:
 
-<!--git ["1e72c7abe7c17ed29c88256faae6072ef08c92ab", "module01 initiated"]-->
+<!--git ["ca30d155b6b0678def6f7e3cc309af0547f3e8b1", "module01 initiated"]-->
 
 The following setting in the POM will carry out the assembled artifacts from our code base
 (the variable `TMP_MAVEN_BUILDS_DIR` must be set in the system):
@@ -45,5 +45,23 @@ Filtering is used to avoid some unrelated messages specific to the current local
 It's very likely not required in other environments.
 
 The result is [here](<!--wrap_text spring-sm-study/dependency_tree.txt-->).
+
+Running in the command line. In the current environment the default Java version is not 17
+so need some extra settings first:
+
+````wrapped-shell
+>set JAVA_HOME=%JAVA_17_HOME%
+
+>mvn clean package
+
+>set PATH=%JAVA_HOME%\bin;%PATH%
+
+>java -cp %TMP_MAVEN_BUILDS_DIR%module01\module01-1.0-SNAPSHOT.jar springsmstudy.Main
+Hello world 01!
+````
+
+
+
+
 
 

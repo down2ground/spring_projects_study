@@ -1,4 +1,4 @@
-<!--VARIABLES {"title": "Patch 1e72c7abe7c17ed29c88256faae6072ef08c92ab"}--> 
+<!--VARIABLES {"title": "Patch ca30d155b6b0678def6f7e3cc309af0547f3e8b1"}--> 
  
 <strong>Commit message:</strong> 
 module01 initiated
@@ -24,7 +24,7 @@ module01 initiated
 
 <span>new file mode 100644</span><br />
 
-<span class="index">index 0000000..4fc74b6</span><br />
+<span class="index">index 0000000..c0b70b4</span><br />
 
 <span class="tree_minuses">--- /dev/null</span><br />
 
@@ -64,9 +64,9 @@ module01 initiated
 
 <ins>+    &lt;properties&gt;</ins><br />
 
-<ins>+        &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;</ins><br />
+<ins>+        &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;</ins><br />
 
-<ins>+        &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;</ins><br />
+<ins>+        &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;</ins><br />
 
 <ins>+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</ins><br />
 
@@ -106,7 +106,7 @@ module01 initiated
 
 <span>new file mode 100644</span><br />
 
-<span class="index">index 0000000..9c00206</span><br />
+<span class="index">index 0000000..ed81982</span><br />
 
 <span class="tree_minuses">--- /dev/null</span><br />
 
@@ -150,9 +150,9 @@ module01 initiated
 
 <ins>+    &lt;properties&gt;</ins><br />
 
-<ins>+        &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;</ins><br />
+<ins>+        &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;</ins><br />
 
-<ins>+        &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;</ins><br />
+<ins>+        &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;</ins><br />
 
 <ins>+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</ins><br />
 

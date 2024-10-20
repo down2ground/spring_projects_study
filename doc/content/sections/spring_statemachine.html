@@ -91,7 +91,7 @@ and the one module initiation:</p>
 <img alt="" src="../../pict/idea_initiate_multimodule_project_1.png" /></p>
 <p>After some manual cleanup the following result is obtained:</p>
 <blockquote>
-<p>Git commit: <a href="../patches/1e72c7abe7c17ed29c88256faae6072ef08c92ab.html"><code>1e72c7abe7c17ed29c88256faae6072ef08c92ab</code></a>
+<p>Git commit: <a href="../patches/ca30d155b6b0678def6f7e3cc309af0547f3e8b1.html"><code>ca30d155b6b0678def6f7e3cc309af0547f3e8b1</code></a>
 module01 initiated</p>
 </blockquote>
 <p>The following setting in the POM will carry out the assembled artifacts from our code base
@@ -106,6 +106,16 @@ module01 initiated</p>
 <p>Filtering is used to avoid some unrelated messages specific to the current local environment.
 It's very likely not required in other environments.</p>
 <p>The result is <a href="../code/spring-sm-study/dependency_tree.txt.html">here</a>.</p>
+<p>Running in the command line. In the current environment the default Java version is not 17
+so need some extra settings first:</p>
+<pre class="highlight"><code class="language-wrapped-shell">&gt;set JAVA_HOME=%JAVA_17_HOME%
+
+&gt;mvn clean package
+
+&gt;set PATH=%JAVA_HOME%\bin;%PATH%
+
+&gt;java -cp %TMP_MAVEN_BUILDS_DIR%module01\module01-1.0-SNAPSHOT.jar springsmstudy.Main
+Hello world 01!</code></pre>
 <p>&nbsp;</p>
 <hr />
 
