@@ -1,0 +1,69 @@
+{
+    "options": {
+        "verbose": true
+    },
+    "default": {
+        "input-root": "doc_src",
+        "output-root": "doc/content",
+        "template": "doc_src/templates/multipage.html",
+        "no-css": true,
+        "verbose": true
+    },
+    "documents": [
+        { "input-root": "", "output-root": "", "input": "readme.txt", "title": "Home", 
+            "page-flows": ["sections", "nav"] },
+        { "input-glob": "sections/*.txt", "page-flows": ["sections", "nav"], 
+            "title-from-variable": "title", "code-from-variable": "code", 
+            "sort-by-variable": "SORT_ORDER" },
+            
+        { "input-glob": "sections/ref/*.txt", "page-flows": ["ref", "nav"], 
+            "title-from-variable": "title", "code-from-variable": "code", 
+            "sort-by-variable": "SORT_ORDER" }
+    ],
+    "plugins": {
+        "variables": {
+            "html_lang": "en",
+            "burger_open_image": "layout/pict/burger.png",
+            "add_powered_by": false, "ad_exec_version": true, "add_generation_timestamp": false,
+            "show_source_link": true,
+            "theme": "light",
+            "add_more_prog_langs": true
+        },
+        "page-variables": {},
+        "relative-paths": {
+            "markers": ["path"],
+            "paths": {
+                "resource_path": "doc/",
+                "pict": "doc/pict/"
+            }
+        },
+        "page-flows": {
+            "header": [
+                { "link": "readme.html", "title": "", "image": "favicon.png", "image_class": "logo_image",
+                    "image_alt": "Logo" },
+                { "link": "readme.html", "title": "Home", "class": "toggle_wide_only_inline" },
+                { "link": "doc/content/index_page.html", "title": "Index", "class": "toggle_wide_only_inline" },
+                { "link": "doc/content/index_page.html", "title": "", "class": "toggle_narrow_only_inline",
+                    "image": "layout/pict/search.png", "image_class": "header_image index_image",
+                    "image_alt": "Index" }
+            ],
+            "header_wide_only": [
+#                { "link": "https://add.your/link/here", "title": "GitHub", "external": true }
+            ],
+            "sections": { "groups": ["sidebar"] },
+            "ref": { "groups": ["sidebar"] }
+        },
+        "index": {"index": {"output": "index_page.html", "title": "Index", "index-cache": "index_cache.json", 
+                    "index-cache-relative": true, "letters": true, "letters-block": true,
+                    "add-link-css": ["doc/layout/index.css"] }
+        },
+        "page-links": { "markers": ["page"] },
+        "replace": [
+            { "markers": ["ref"], "replace-with":
+                "<a class=\"ref\" href=\"<!--page refs-->#${1}\">${1}</a>",
+                "recursive": true },
+            { "markers": ["refdef"], "replace-with":
+                "<a name=\"${1}\"></a><span class=\"refDef\">[${1}]</span>" }
+        ]
+    }
+}

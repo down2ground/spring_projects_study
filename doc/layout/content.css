@@ -1,0 +1,233 @@
+html {
+    font-size: 18px;
+}
+
+body, html {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+body {
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 100px;
+}
+
+ul, ol {
+    padding-left: 40px;
+}
+
+hr {
+    height: 1px;
+    border: 0px;
+    width: 100%;
+}
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+    font-size: unset;
+}
+
+code, .code {
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;
+    font-size: 0.889rem;
+    background-color: #eeeeee;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+    border-style: solid;
+    border-width: 1px;
+}
+
+pre>code, div.code {
+    font-size: 0.889rem;
+    display: block;
+    line-height: 1.4;
+    border-radius: 0;
+    white-space: pre;
+    padding: 10px;
+    overflow-x: auto;
+    border-style: solid;
+    border-width: 1px;
+}
+
+pre>code.language-text {
+    background-color: unset;
+    padding: 0;
+    border: none;
+}
+
+pre>code.language-wrapped, pre>code.language-wrapped-text,
+pre>code.language-wrapped-code, pre>code.language-wrapped-shell
+{
+    white-space: pre-wrap;
+    word-break: break-word;
+    min-width: unset;
+}
+
+pre>code.language-wrapped-shell, pre>code.language-shell {
+  padding-top: 40px;
+}
+
+pre>code.language-shell::before, pre>code.language-wrapped-shell::before {
+    display: block;
+    position: absolute;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 0.8rem;
+    margin-top: -32px;
+    padding-right: 7px;
+    padding-bottom: 3px;
+}
+
+pre>code.language-shell::before, pre>code.language-wrapped-shell::before {
+    content: "Shell";
+}
+
+.blockSrc {
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.blockSrc+pre {
+    margin-top: 5px;
+}
+
+blockquote {
+    margin-left: 0;
+    margin-right: 0px;
+    padding: 1px 10px;
+    font-size: 0.889rem;
+    border-style: solid;
+    border-width: 1px 1px 1px 10px;
+}
+
+blockquote, div.admonition {
+    overflow-x: auto;
+}
+
+table {
+    max-width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 0.889rem;
+}
+
+table td, table th {
+    border-style: solid;
+    border-width: 1px;
+    padding: 7px 14px;
+}
+
+table td {
+    vertical-align: top;
+}
+
+table th {
+    background-color: #e9f0f2;
+}
+
+div.tableLight+table td, div.tableLight+table th {
+    background: none;
+    border: none;
+    padding: 2px 7px;
+}
+
+div.tableHeaderless+table>thead {
+    display: none;
+}
+
+div.admonition {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    padding: 0;
+    font-size: 0.889rem;
+    border-style: solid;
+    border-width: 1px;
+}
+
+div.admonition>p.admonition-title {
+    margin: 0;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding: 5px 20px 5px 10px;
+    font-weight: bold;
+}
+
+div.admonition>* {
+    margin: 16px 10px;
+}
+
+li>div.admonition {
+    width: unset;
+    min-width: unset;
+}
+
+img.floatRight {
+    float: right; 
+    margin: 0 0 25px 25px;
+}
+
+img.floatLeft {
+    float: left; 
+    margin: 0 25px 25px 0;
+}
+
+.poweredBy {
+    font-size: 0.734rem;
+}
+
+.w-fit {
+    max-width: 50rem;
+}
+
+.img-frame {
+    border-style: dashed;
+    border-width: 1px;
+}
+
+.w-fit.img-frame {
+    max-width: 49.88rem;
+}
+
+.video::before {
+    position: relative;
+    bottom: -2px;
+    margin-right: 3px;
+}
+
+.external::before {
+    position: relative;
+    bottom: -2px;
+    margin-right: 3px;
+}
+
+.doc::before {
+    position: relative;
+    bottom: -2px;
+    margin-right: 3px;
+}
+
+.folder::before {
+    position: relative;
+    bottom: -2px;
+    margin-right: 3px;
+}
+
+.right {
+    text-align: right;
+}
+
+.th {
+    font-weight: bold;
+}
+
+.hide {
+    display: none;
+}
+

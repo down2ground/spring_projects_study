@@ -1,0 +1,13 @@
+<!--VARIABLES {"title": "Spring Statemachine", "SORT_ORDER": "010", "code": "spring_statemachine"}-->
+
+[TOC]
+
+----------------------------------------------------------------------------------------------------
+<!--index ["Spring Statemachine", "state machine, Spring", "FSM, Spring"]-->
+# Materials
+
+[<!--ref spring_home-->]:
+
+- [Overview](https://spring.io/projects/spring-statemachine#learn)
+- [Reference Documentation](https://docs.spring.io/spring-statemachine/docs/4.0.0/reference/index.html)
+

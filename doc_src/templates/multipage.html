@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html{{#html_lang}} lang="{{.}}"{{/html_lang}}>
+<head><title>{{title}}</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="{{resource_path}}favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{{resource_path}}layout/content.css">
+{{#add_more_prog_langs}}<link rel="stylesheet" type="text/css" href="{{resource_path}}layout/more_prog_langs.css">
+{{/add_more_prog_langs}}
+<link rel="stylesheet" type="text/css" href="{{resource_path}}themes/{{theme}}/content_theme.css">
+{{#add_more_prog_langs}}<link rel="stylesheet" type="text/css" href="{{resource_path}}themes/{{theme}}/more_prog_langs_theme.css">
+{{/add_more_prog_langs}}
+<link rel="stylesheet" type="text/css" href="{{resource_path}}layout/layout.css">
+<link rel="stylesheet" type="text/css" href="{{resource_path}}themes/{{theme}}/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="{{resource_path}}custom.css">
+{{{styles}}}
+<link rel="stylesheet" type="text/css" href="{{resource_path}}layout/flex.css">
+{{#link_js}}<script {{#defer}} defer{{/defer}} src="{{resource_path}}{{{src}}}"></script>
+{{/link_js}}
+</head>
+<body>
+
+<div class="header">
+{{#burger_open_image}}<img id="burger" src="{{resource_path}}{{{.}}}" 
+onclick="toggleSidebar();return false;" class="toggle_narrow_only_inline" alt="Sidebar">{{/burger_open_image}}
+{{#logo}}<span class="toggle_wide_only_inline">{{{.}}}</span>{{/logo}}
+{{#header}}<a 
+class="header_item{{#current}} selected{{/current}} {{{class}}}"
+href="{{link}}">{{#title}}<span class="{{{title_class}}}">{{{.}}}</span>{{/title}}{{#image}}<img 
+class="{{{image_class}}}" src="{{resource_path}}{{{.}}}" {{#image_alt}}alt="{{{.}}}"{{/image_alt}}>{{/image
+}}</a>{{/header}}{{#header_wide_only}}<a 
+class="header_item{{#current}} selected{{/current}} toggle_wide_only_inline {{{class}}}"
+href="{{link}}">{{#title}}<span class="{{{title_class}}}">{{{.}}}</span>{{/title}}{{#image}}<img 
+class="{{{image_class}}}" src="{{resource_path}}{{{.}}}" />{{/image}}</a>{{/header_wide_only}}
+{{#show_source_link}}
+{{#source_file}}<a href="{{{.}}}" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>{{/source_file}}
+{{^source_file}}<span class="source_file inactive toggle_wide_only_inline">&lt;/&gt;</span>{{/source_file}}
+{{/show_source_link}}
+{{#nav.previous}}<a href="{{link}}" title="Previous: {{title}}"><img class="headerNavArrows"
+src="{{resource_path}}layout/pict/previous_page_h21px.png" alt="Back"></a>{{/nav.previous}}
+{{^nav.previous}}<img class="headerNavArrows" src="{{resource_path}}layout/pict/previous_page_h21px_inactive.png"
+alt="No back">{{/nav.previous}} 
+{{#nav.next}}<a href="{{link}}" title="Next: {{title}}"><img class="headerNavArrows"
+src="{{resource_path}}layout/pict/next_page_h21px.png" alt="Next"></a>{{/nav.next}}
+{{^nav.next}}<img class="headerNavArrows" src="{{resource_path}}layout/pict/next_page_h21px_inactive.png"
+alt="No next">{{/nav.next}}
+{{#controls}}{{{.}}}
+{{/controls}}
+
+<span class="headerTitle">{{title}}</span>
+
+</div>
+
+<div class="sidebarWrapper">
+<div class="sidebar">
+    <table class="sidebarAligner">
+        <tr><td class="valign_top">
+            <div class="align_right toggle_narrow_only_block">{{#header_wide_only}}
+            <a class="sidebar_item_inline{{#current}} selected{{/current}} align_right" href="{{link}}">{{title}}</a>
+            {{/header_wide_only}}{{#show_source_link}}
+            {{#source_file}}<a href="{{{.}}}" class="sidebar_item_inline source_file align_right" 
+                title="Source text">&lt;/&gt;</a>{{/source_file}}
+            {{^source_file}}<span class="sidebar_item_inline source_file inactive align_right"
+                >&lt;/&gt;</span>{{/source_file}}
+            {{/show_source_link}}</div>
+            {{#sidebar}}<div class="sidebar_block">
+            {{#not_empty}}{{#title}}<h3>{{.}}</h3>{{/title}}{{/not_empty}}
+            {{#.}}
+            <a class="sidebar_item{{#current}} selected{{/current}} {{{class}}}" href="{{link}}">{{title}}</a>
+            {{/.}}
+            </div>{{/sidebar}}
+        </td></tr>
+        <tr><td class="bottom valign_bottom">{{#add_powered_by
+            }}<span class="poweredBy">Powered by <a class="poweredByLink"
+            href="https://github.com/arctrong/md2html">{{exec_name}}</a>{{#ad_exec_version
+            }} {{exec_version}}{{/ad_exec_version}}{{#add_generation_timestamp
+            }}{{generation_date}} {{generation_time}}{{/add_generation_timestamp}}</span>
+            {{/add_powered_by}}
+        </td></tr>
+    </table>
+</div>
+</div>
+
+{{^noPageTitle}}<p style="font-size:44px;font-weight:bold;margin:0 0 30px 0;">{{title}}</p>{{/noPageTitle}}
+
+{{{content}}}
+<p>&nbsp;</p>
+<hr />
+
+{{#nav.has_navigation}}
+<p style="margin-top:0px;margin-bottom:0px;text-align:right;">{{#nav.previous}}<a href="{{link}}" 
+title="Previous: {{title}}"><img src="{{resource_path}}layout/pict/previous_page.png"
+alt="Back"></a>{{/nav.previous}}{{^nav.previous}}<img src="{{resource_path}}layout/pict/previous_page_inactive.png"
+alt="No back">{{/nav.previous}}
+{{#nav.next}}<a href="{{link}}" title="Next: {{title}}"><img 
+src="{{resource_path}}layout/pict/next_page.png" alt="Next"></a>{{/nav.next}}
+{{^nav.next}}<img src="{{resource_path}}layout/pict/next_page_inactive.png" alt="No next">{{/nav.next}}</p>
+{{/nav.has_navigation}}
+
+<script>
+function toggleSidebar() {
+    let sidebar = document.getElementsByClassName("sidebarWrapper")[0]
+    let display = sidebar.style.display
+    if (!display || display == "none") {
+        sidebar.style.display = "block"
+    } else {
+        sidebar.style.display = ""
+    }
+}
+</script>
+
+</body>
+</html>

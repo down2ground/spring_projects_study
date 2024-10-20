@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Home</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="doc/favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="doc/layout/content.css">
+<link rel="stylesheet" type="text/css" href="doc/layout/more_prog_langs.css">
+<link rel="stylesheet" type="text/css" href="doc/themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="doc/themes/light/more_prog_langs_theme.css">
+<link rel="stylesheet" type="text/css" href="doc/layout/layout.css">
+<link rel="stylesheet" type="text/css" href="doc/themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="doc/custom.css">
+
+<link rel="stylesheet" type="text/css" href="doc/layout/flex.css">
+</head>
+<body>
+
+<div class="header">
+<img id="burger" src="doc/layout/pict/burger.png" 
+onclick="toggleSidebar();return false;" class="toggle_narrow_only_inline" alt="Sidebar">
+
+<a 
+class="header_item selected "
+href="readme.html"><img 
+class="logo_image" src="doc/favicon.png" alt="Logo"></a><a 
+class="header_item selected toggle_wide_only_inline"
+href="readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="doc/content/index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="doc/content/index_page.html"><img 
+class="header_image index_image" src="doc/layout/pict/search.png" alt="Index"></a>
+<a href="readme.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+
+<img class="headerNavArrows" src="doc/layout/pict/previous_page_h21px_inactive.png"
+alt="No back"> 
+<a href="doc/content/sections/spring_statemachine.html" title="Next: Spring Statemachine"><img class="headerNavArrows"
+src="doc/layout/pict/next_page_h21px.png" alt="Next"></a>
+
+
+<span class="headerTitle">Home</span>
+
+</div>
+
+<div class="sidebarWrapper">
+<div class="sidebar">
+    <table class="sidebarAligner">
+        <tr><td class="valign_top">
+            <div class="align_right toggle_narrow_only_block">
+            <a href="readme.txt" class="sidebar_item_inline source_file align_right" 
+                title="Source text">&lt;/&gt;</a>
+            
+            </div>
+            <div class="sidebar_block">
+            
+            <a class="sidebar_item selected " href="readme.html">Home</a>
+            <a class="sidebar_item " href="doc/content/sections/spring_statemachine.html">Spring Statemachine</a>
+            </div><div class="sidebar_block">
+            
+            <a class="sidebar_item " href="doc/content/sections/ref/references.html">References</a>
+            </div>
+        </td></tr>
+        <tr><td class="bottom valign_bottom">        </td></tr>
+    </table>
+</div>
+</div>
+
+<p style="font-size:44px;font-weight:bold;margin:0 0 30px 0;">Home</p>
+
+<div class="toc">
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#materials">Materials</a></li>
+<li><a href="#change-log">Change log</a></li>
+</ul>
+</div>
+<hr />
+<h1 id="about">About</h1>
+<p>Study notes on the Spring projects that are better to be studied separately, not in scope of
+a complex project.</p>
+<hr />
+<h1 id="materials">Materials</h1>
+<p>The spring project list may be found at [<a class="ref" href="doc/content/sections/ref/references.html#spring_home">spring_home</a>,
+<a href="https://spring.io/projects">Projects</a>, <a href="https://spring.io/projects/spring-boot">Overviews</a>].</p>
+<hr />
+<h1 id="change-log">Change log</h1>
+<p>Oct 20, 2024 The study notes started.</p>
+<p>&nbsp;</p>
+<hr />
+
+<p style="margin-top:0px;margin-bottom:0px;text-align:right;"><img src="doc/layout/pict/previous_page_inactive.png"
+alt="No back">
+<a href="doc/content/sections/spring_statemachine.html" title="Next: Spring Statemachine"><img 
+src="doc/layout/pict/next_page.png" alt="Next"></a>
+</p>
+
+<script>
+function toggleSidebar() {
+    let sidebar = document.getElementsByClassName("sidebarWrapper")[0]
+    let display = sidebar.style.display
+    if (!display || display == "none") {
+        sidebar.style.display = "block"
+    } else {
+        sidebar.style.display = ""
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+body {
+    color: black;
+    background-color: white;
+}
+
+hr {
+    background: cadetblue;
+}
+
+del {
+    color: red;
+}
+
+ins {
+    color: green;
+}
+
+code, .code {
+    background-color: #eeeeee;
+    border-color: lightgray;
+}
+
+pre>code.language-code, pre>code.language-wrapped-code {
+    color: darkred;
+    border-color: darkred;
+    background-color: beige;
+}
+
+pre>code.language-shell, pre>code.language-wrapped-shell {
+    color: floralwhite;
+    border-color: darkslategray;
+    background-color: darkslategray;
+}
+
+.blockSrc {
+    color: darkslategray;
+}
+
+blockquote {
+    border-color: #cccccc;
+}
+
+table td, table th {
+    border-color: #6a8fb3;
+}
+
+table th {
+    background-color: #e9f0f2;
+}
+
+div.admonition {
+    border-color: #cccccc;
+}
+
+div.admonition>p.admonition-title {
+    border-bottom-color: #cccccc;
+    background-color: #eeeeee;
+}
+
+div.admonition.warning,
+div.admonition.attention,
+div.admonition.caution {
+    border-color: #ff9001;
+}
+
+div.admonition.warning>p.admonition-title,
+div.admonition.attention>p.admonition-title, 
+div.admonition.caution>p.admonition-title {
+    border-bottom-color: #ff9001;
+    background-color: #fef3e8;
+}
+
+div.admonition.danger,
+div.admonition.error {
+    border-color: #f50057;
+}
+
+div.admonition.danger>p.admonition-title,
+div.admonition.error>p.admonition-title {
+    border-bottom-color: #f50057;
+    background-color: #ffe9ed;
+}
+
+div.admonition.hint,
+div.admonition.tip,
+div.admonition.important {
+    border-color: #01bfa5;
+}
+
+div.admonition.hint>p.admonition-title,
+div.admonition.tip>p.admonition-title, 
+div.admonition.important>p.admonition-title {
+    border-bottom-color: #01bfa5;
+    background-color: #e9f9f6;
+}
+
+div.admonition.note {
+    border-color: #448aff;
+}
+
+div.admonition.note>p.admonition-title {
+    border-bottom-color: #448aff;
+    background-color: #edf4ff;
+}
+
+.poweredBy {
+    color: dimgray;
+}
+
+.w-fit {
+    max-width: 50rem;
+}
+
+.img-frame {
+    border-color: black;
+}
+
+.video::before {
+    content: url("video_link.png");
+}
+
+.external::before {
+    content: url("external_link.png");
+}
+
+.doc::before {
+    content: url("document_link.png");
+}
+
+.folder::before {
+    content: url("folder_link.png");
+}
+
+.th {
+    background-color: #e9f0f2;
+}
+

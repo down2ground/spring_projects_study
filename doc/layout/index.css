@@ -1,0 +1,22 @@
+div.index-content {
+    column-count: 3;
+}
+
+p.index-letter {
+    column-span: all;
+    font-weight: bold;
+    font-size: 1.667rem;
+    margin-bottom: 12px;
+}
+
+p.index-entry {
+    margin-top: 0px;
+    margin-bottom: 8px;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
+    word-wrap: break-word;
+}
+
+div.index-content {
+    max-width: 50rem;
+}
