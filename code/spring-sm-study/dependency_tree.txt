@@ -1,0 +1,33 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] spring-sm-study                                                    [pom]
+[INFO] module01                                                           [jar]
+[INFO] 
+[INFO] ---------------< world.spring-sm-study:spring-sm-study >----------------
+[INFO] Building spring-sm-study 1.0-SNAPSHOT                              [1/2]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:2.8:tree (default-cli) @ spring-sm-study ---
+[INFO] world.spring-sm-study:spring-sm-study:pom:1.0-SNAPSHOT
+[INFO] 
+[INFO] -------------------< world.spring-sm-study:module01 >-------------------
+[INFO] Building module01 1.0-SNAPSHOT                                     [2/2]
+[INFO]   from module01\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:2.8:tree (default-cli) @ module01 ---
+[INFO] world.spring-sm-study:module01:jar:1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for spring-sm-study 1.0-SNAPSHOT:
+[INFO] 
+[INFO] spring-sm-study .................................... SUCCESS [  1.296 s]
+[INFO] module01 ........................................... SUCCESS [  0.031 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.626 s
+[INFO] Finished at: 2024-10-20T20:58:45+02:00
+[INFO] ------------------------------------------------------------------------
