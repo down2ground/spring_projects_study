@@ -18,7 +18,11 @@
             
         { "input-glob": "sections/ref/*.txt", "page-flows": ["ref", "nav"], 
             "title-from-variable": "title", "code-from-variable": "code", 
-            "sort-by-variable": "SORT_ORDER" }
+            "sort-by-variable": "SORT_ORDER" },
+            
+        { "input-root": "doc_src", "output-root": "doc/content", "add-link-css": ["doc/patch.css"],
+        "template": "doc_src/templates/patch.html", "input-glob": "patches/*.txt",
+            "page-flows": [], "title-from-variable": "title" }
     ],
     "plugins": {
         "variables": {
@@ -34,7 +38,8 @@
             "markers": ["path"],
             "paths": {
                 "resource_path": "doc/",
-                "pict": "doc/pict/"
+                "pict": "doc/pict/",
+                "patches": "doc/content/patches/"
             }
         },
         "page-flows": {
@@ -63,7 +68,16 @@
                 "<a class=\"ref\" href=\"<!--page refs-->#${1}\">${1}</a>",
                 "recursive": true },
             { "markers": ["refdef"], "replace-with":
-                "<a name=\"${1}\"></a><span class=\"refDef\">[${1}]</span>" }
-        ]
+                "<a name=\"${1}\"></a><span class=\"refDef\">[${1}]</span>" },
+            { "markers": ["git"], "replace-with":
+                "> Git commit: [`${1}`](<!--path patches-->${1}.html)\n${2}",
+                "recursive": true }
+        ],
+        "wrap-code": {
+            "wrap_text": {"style": "", "input-root": "code/", "output-root": "doc/content/code",
+                "template": "doc_src/templates/code.html", "variables": {"noPageTitle": true}},
+            "wrap_java": {"style": "java", "input-root": "code/", "output-root": "doc/content/code",
+                "template": "doc_src/templates/code.html", "variables": {"noPageTitle": true}}
+        }
     }
 }

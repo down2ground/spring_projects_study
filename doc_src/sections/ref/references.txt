@@ -2,6 +2,19 @@
 
 <!--refdef spring_home--> Spring official site: <https://spring.io/>
 
+<!--refdef spring_sm_guide_bae--> Baeldung:
+[A Guide to the Spring State Machine Project](https://www.baeldung.com/spring-state-machine)
+
+<!--refdef spring_sm_get_started_sfg_yt--> Youtube:
+[Getting Started with Spring State Machine](https://youtu.be/A-dVgRV5-Bw?si=vrUMcamH17KRK2rf),    
+by [Spring Framework Guru](https://www.youtube.com/@SpringframeworkGuru),    
+Dec 7, 2019, duration 1:36:48
+
+<!--refdef spring_tips_sm_sd_yt--> Youtube:
+[Spring Tips: Spring Statemachine](https://youtu.be/M4Aa45Gpc4w?si=eqYTK5vg5SkirU5H),    
+by [SpringDeveloper](https://www.youtube.com/@SpringSourceDev),    
+Apr 25, 2018, duration 59:45
+
 
 
 

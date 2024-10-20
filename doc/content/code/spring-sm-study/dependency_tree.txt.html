@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head><title>dependency_tree.txt</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../../favicon.png"/>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../../layout/more_prog_langs.css">
+<link rel="stylesheet" type="text/css" href="../../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../themes/light/more_prog_langs_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../custom.css">
+
+<link rel="stylesheet" type="text/css" href="../../../layout/flex.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<a 
+class="header_item "
+href="../../../../readme.html"><img 
+class="logo_image" src="../../../favicon.png" /></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../../index_page.html"><img 
+class="header_image index_image" src="../../../layout/pict/search.png" /></a>
+
+<span class="source_file inactive toggle_wide_only_inline">&lt;/&gt;</span>
+
+<img class="headerNavArrows" src="../../../layout/pict/previous_page_h21px_inactive.png"/>
+
+<img class="headerNavArrows" src="../../../layout/pict/next_page_h21px_inactive.png"/>
+
+<span class="headerTitle">dependency_tree.txt</span>
+
+</div>
+
+<p><strong>Path:</strong> spring-sm-study/dependency_tree.txt</p>
+
+<pre class="highlight"><code>[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] spring-sm-study                                                    [pom]
+[INFO] module01                                                           [jar]
+[INFO] 
+[INFO] ---------------&lt; world.spring-sm-study:spring-sm-study &gt;----------------
+[INFO] Building spring-sm-study 1.0-SNAPSHOT                              [1/2]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:2.8:tree (default-cli) @ spring-sm-study ---
+[INFO] world.spring-sm-study:spring-sm-study:pom:1.0-SNAPSHOT
+[INFO] 
+[INFO] -------------------&lt; world.spring-sm-study:module01 &gt;-------------------
+[INFO] Building module01 1.0-SNAPSHOT                                     [2/2]
+[INFO]   from module01\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:2.8:tree (default-cli) @ module01 ---
+[INFO] world.spring-sm-study:module01:jar:1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for spring-sm-study 1.0-SNAPSHOT:
+[INFO] 
+[INFO] spring-sm-study .................................... SUCCESS [  1.296 s]
+[INFO] module01 ........................................... SUCCESS [  0.031 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.626 s
+[INFO] Finished at: 2024-10-20T20:58:45+02:00
+[INFO] ------------------------------------------------------------------------
+</code></pre>
+
+<p></p>
+
+</body>
+</html>

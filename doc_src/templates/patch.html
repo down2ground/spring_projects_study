@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html{{#html_lang}} lang="{{.}}"{{/html_lang}}>
+<head><title>{{title}}</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="{{resource_path}}favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{{resource_path}}layout/content.css">
+<link rel="stylesheet" type="text/css" href="{{resource_path}}themes/{{theme}}/content_theme.css">
+<link rel="stylesheet" type="text/css" href="{{resource_path}}layout/layout.css">
+<link rel="stylesheet" type="text/css" href="{{resource_path}}themes/{{theme}}/layout_theme.css">
+{{{styles}}}
+<link rel="stylesheet" type="text/css" href="{{resource_path}}layout/flex.css">
+<link rel="stylesheet" type="text/css" href="{{resource_path}}custom.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+{{#logo}}<span class="toggle_wide_only_inline">{{{.}}}</span>{{/logo}}
+{{#header}}<a 
+class="header_item{{#current}} selected{{/current}} {{{class}}}"
+href="{{link}}">{{#title}}<span class="{{{title_class}}}">{{{.}}}</span>{{/title}}{{#image}}<img 
+class="{{{image_class}}}" src="{{resource_path}}{{{.}}}" {{#image_alt}}alt="{{{.}}}"{{/image_alt}}>{{/image
+}}</a>{{/header}}{{#header_wide_only}}<a 
+class="header_item{{#current}} selected{{/current}} toggle_wide_only_inline"
+href="{{link}}">{{#title}}<span class="{{{title_class}}}">{{{.}}}</span>{{/title}}{{#image}}<img 
+class="{{{image_class}}}" src="{{resource_path}}{{{.}}}" />{{/image}}</a>{{/header_wide_only}}
+{{#show_source_link}}
+{{#source_file}}<a href="{{{.}}}" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>{{/source_file}}
+{{^source_file}}<span class="source_file inactive toggle_wide_only_inline">&lt;/&gt;</span>{{/source_file}}
+{{/show_source_link}}
+{{#nav.previous}}<a href="{{link}}" title="Previous: {{title}}"><img class="headerNavArrows"
+src="{{resource_path}}layout/pict/previous_page_h21px.png" alt="Back"></a>{{/nav.previous}}
+{{^nav.previous}}<img class="headerNavArrows" src="{{resource_path}}layout/pict/previous_page_h21px_inactive.png"
+alt="No back">{{/nav.previous}}
+{{#nav.next}}<a href="{{link}}" title="Next: {{title}}"><img class="headerNavArrows"
+src="{{resource_path}}layout/pict/next_page_h21px.png" alt="Next"></a>{{/nav.next}}
+{{^nav.next}}<img class="headerNavArrows" src="{{resource_path}}layout/pict/next_page_h21px_inactive.png"
+alt="No next">{{/nav.next}}
+
+<span class="headerTitle">{{title}}</span>
+
+</div>
+
+<h1 style="width: unset; max-width: unset;">{{title}}</h1>
+
+{{{content}}}
+
+<p>{{#add_powered_by
+}}<span class="poweredBy">Powered by <a class="poweredByLink" 
+href="https://github.com/arctrong/md2html">{{exec_name}}</a>{{#ad_exec_version
+}} {{exec_version}}{{/ad_exec_version}}{{#add_generation_timestamp
+}}{{generation_date}} {{generation_time}}{{/add_generation_timestamp}}</span>{{/add_powered_by}}</p>
+
+<p>&nbsp;</p>
+
+</body>
+</html>

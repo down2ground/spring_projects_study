@@ -1,0 +1,172 @@
+<!--VARIABLES {"title": "Patch 1e72c7abe7c17ed29c88256faae6072ef08c92ab"}--> 
+ 
+<strong>Commit message:</strong> 
+module01 initiated
+
+ 
+<div class="patch_block">
+
+<span class="diff">diff --git a/.gitignore b/.gitignore</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..a5a5f78</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/.gitignore</span><br />
+
+<span class="two_ats">@@ -0,0 +1 @@</span><br />
+
+<ins>+/code/**/.idea/*</ins><br />
+
+<span class="diff">diff --git a/code/spring-sm-study/module01/pom.xml b/code/spring-sm-study/module01/pom.xml</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..4fc74b6</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/module01/pom.xml</span><br />
+
+<span class="two_ats">@@ -0,0 +1,22 @@</span><br />
+
+<ins>+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</ins><br />
+
+<ins>+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</ins><br />
+
+<ins>+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</ins><br />
+
+<ins>+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0</ins><br />
+
+<ins>+            http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</ins><br />
+
+<ins>+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;parent&gt;</ins><br />
+
+<ins>+        &lt;groupId&gt;world.spring-sm-study&lt;/groupId&gt;</ins><br />
+
+<ins>+        &lt;artifactId&gt;spring-sm-study&lt;/artifactId&gt;</ins><br />
+
+<ins>+        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</ins><br />
+
+<ins>+    &lt;/parent&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;artifactId&gt;module01&lt;/artifactId&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;properties&gt;</ins><br />
+
+<ins>+        &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;</ins><br />
+
+<ins>+        &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;</ins><br />
+
+<ins>+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</ins><br />
+
+<ins>+    &lt;/properties&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;/project&gt;</ins><br />
+
+<span class="diff">diff --git a/code/spring-sm-study/module01/src/main/java/springsmstudy/Main.java b/code/spring-sm-study/module01/src/main/java/springsmstudy/Main.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..ae806d5</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/module01/src/main/java/springsmstudy/Main.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,7 @@</span><br />
+
+<ins>+package springsmstudy;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+public class Main {</ins><br />
+
+<ins>+    public static void main(String[] args) {</ins><br />
+
+<ins>+        System.out.println(&quot;Hello world 01!&quot;);</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+}</ins><br />
+
+<span class="diff">diff --git a/code/spring-sm-study/pom.xml b/code/spring-sm-study/pom.xml</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..9c00206</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/pom.xml</span><br />
+
+<span class="two_ats">@@ -0,0 +1,27 @@</span><br />
+
+<ins>+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</ins><br />
+
+<ins>+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</ins><br />
+
+<ins>+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</ins><br />
+
+<ins>+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0</ins><br />
+
+<ins>+            http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</ins><br />
+
+<ins>+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;groupId&gt;world.spring-sm-study&lt;/groupId&gt;</ins><br />
+
+<ins>+    &lt;artifactId&gt;spring-sm-study&lt;/artifactId&gt;</ins><br />
+
+<ins>+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;packaging&gt;pom&lt;/packaging&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;modules&gt;</ins><br />
+
+<ins>+        &lt;module&gt;module01&lt;/module&gt;</ins><br />
+
+<ins>+    &lt;/modules&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;properties&gt;</ins><br />
+
+<ins>+        &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;</ins><br />
+
+<ins>+        &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;</ins><br />
+
+<ins>+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</ins><br />
+
+<ins>+    &lt;/properties&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;build&gt;</ins><br />
+
+<ins>+        &lt;directory&gt;${TMP_MAVEN_BUILDS_DIR}${project.artifactId}&lt;/directory&gt;</ins><br />
+
+<ins>+    &lt;/build&gt;</ins><br />
+
+<ins>+&lt;/project&gt;</ins><br />
+
+</div>
+

@@ -72,6 +72,7 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 <div class="toc">
 <ul>
 <li><a href="#materials">Materials</a></li>
+<li><a href="#project-setup">Project setup</a></li>
 </ul>
 </div>
 <hr />
@@ -82,6 +83,29 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 <li><a href="https://spring.io/projects/spring-statemachine#learn">Overview</a></li>
 <li><a href="https://docs.spring.io/spring-statemachine/docs/4.0.0/reference/index.html">Reference Documentation</a></li>
 </ul>
+<hr />
+<h1 id="project-setup">Project setup</h1>
+<p>A multi-module project is going to be used for the study. The IntelliJ IDEA is used for the project
+and the one module initiation:</p>
+<p><img alt="" src="../../pict/idea_initiate_multimodule_project.png" />
+<img alt="" src="../../pict/idea_initiate_multimodule_project_1.png" /></p>
+<p>After some manual cleanup the following result is obtained:</p>
+<blockquote>
+<p>Git commit: <a href="../patches/1e72c7abe7c17ed29c88256faae6072ef08c92ab.html"><code>1e72c7abe7c17ed29c88256faae6072ef08c92ab</code></a>
+module01 initiated</p>
+</blockquote>
+<p>The following setting in the POM will carry out the assembled artifacts from our code base
+(the variable <code>TMP_MAVEN_BUILDS_DIR</code> must be set in the system):</p>
+<pre class="highlight"><code class="language-xml">    ...
+    &lt;build&gt;
+        &lt;directory&gt;${TMP_MAVEN_BUILDS_DIR}${project.artifactId}&lt;/directory&gt;
+    &lt;/build&gt;
+    ...</code></pre>
+<p>The following command generates the dependency tree that shows that there are no dependencies used:</p>
+<pre class="highlight"><code class="language-wrapped-shell">&gt;mvn dependency:tree | find /v "[WARNING] Parameter 'localRepository'" &gt; dependency_tree.txt</code></pre>
+<p>Filtering is used to avoid some unrelated messages specific to the current local environment.
+It's very likely not required in other environments.</p>
+<p>The result is <a href="../code/spring-sm-study/dependency_tree.txt.html">here</a>.</p>
 <p>&nbsp;</p>
 <hr />
 

@@ -11,3 +11,39 @@
 - [Overview](https://spring.io/projects/spring-statemachine#learn)
 - [Reference Documentation](https://docs.spring.io/spring-statemachine/docs/4.0.0/reference/index.html)
 
+----------------------------------------------------------------------------------------------------
+# Project setup
+
+A multi-module project is going to be used for the study. The IntelliJ IDEA is used for the project
+and the one module initiation:
+
+![](<!--path pict-->idea_initiate_multimodule_project.png)
+![](<!--path pict-->idea_initiate_multimodule_project_1.png)
+
+After some manual cleanup the following result is obtained:
+
+<!--git ["1e72c7abe7c17ed29c88256faae6072ef08c92ab", "module01 initiated"]-->
+
+The following setting in the POM will carry out the assembled artifacts from our code base
+(the variable `TMP_MAVEN_BUILDS_DIR` must be set in the system):
+
+````xml
+    ...
+    <build>
+        <directory>${TMP_MAVEN_BUILDS_DIR}${project.artifactId}</directory>
+    </build>
+    ...
+````
+
+The following command generates the dependency tree that shows that there are no dependencies used:
+
+````wrapped-shell
+>mvn dependency:tree | find /v "[WARNING] Parameter 'localRepository'" > dependency_tree.txt
+````
+
+Filtering is used to avoid some unrelated messages specific to the current local environment.
+It's very likely not required in other environments.
+
+The result is [here](<!--wrap_text spring-sm-study/dependency_tree.txt-->).
+
+

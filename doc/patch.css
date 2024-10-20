@@ -1,0 +1,59 @@
+div.sidebar + p {
+    font-size: 32px !important;
+}
+
+div.patch_block {
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;
+    font-size: 16px;
+    /* width: 886px; */
+    word-break: break-word;
+    background-color: aliceblue;
+    padding: 7px;
+}
+
+div.patch_block span, div.patch_block ins, div.patch_block del {
+    white-space: pre-wrap;
+}
+
+
+div.patch_block .diff {
+    background-color: steelblue;
+    display: inline-block;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+div.patch_block .index {
+    color: fuchsia;
+}
+
+div.patch_block .tree_minuses {
+    color: red;
+}
+
+div.patch_block .tree_pluses {
+    color: green;
+}
+
+div.patch_block .two_ats {
+    color: darkorange;
+}
+
+div.patch_block ins {
+    background-color: rgb(122, 248, 152);
+    color: rgb(36, 41, 47);
+    text-decoration: none;    
+}
+
+div.patch_block del {
+    background-color: rgb(252, 180, 172);
+    color: rgb(36, 41, 47);
+    text-decoration: none;
+}
+
+
+
+
+
+
