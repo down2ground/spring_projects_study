@@ -20,14 +20,27 @@
 [INFO] 
 [INFO] --- dependency:2.8:tree (default-cli) @ module01 ---
 [INFO] world.spring-sm-study:module01:jar:1.0-SNAPSHOT
+[INFO] +- org.springframework:spring-context:jar:6.1.11:compile
+[INFO] |  +- org.springframework:spring-aop:jar:6.1.11:compile
+[INFO] |  +- org.springframework:spring-beans:jar:6.1.11:compile
+[INFO] |  +- org.springframework:spring-core:jar:6.1.11:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:6.1.11:compile
+[INFO] |  +- org.springframework:spring-expression:jar:6.1.11:compile
+[INFO] |  \- io.micrometer:micrometer-observation:jar:1.12.8:compile
+[INFO] |     \- io.micrometer:micrometer-commons:jar:1.12.8:compile
+[INFO] \- org.springframework.statemachine:spring-statemachine-core:jar:4.0.0:compile
+[INFO]    +- org.springframework:spring-tx:jar:6.0.14:compile
+[INFO]    +- org.springframework:spring-messaging:jar:6.0.14:compile
+[INFO]    \- io.projectreactor:reactor-core:jar:3.5.12:compile
+[INFO]       \- org.reactivestreams:reactive-streams:jar:1.0.4:compile
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary for spring-sm-study 1.0-SNAPSHOT:
 [INFO] 
-[INFO] spring-sm-study .................................... SUCCESS [  1.296 s]
-[INFO] module01 ........................................... SUCCESS [  0.031 s]
+[INFO] spring-sm-study .................................... SUCCESS [  0.448 s]
+[INFO] module01 ........................................... SUCCESS [  0.046 s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  1.626 s
-[INFO] Finished at: 2024-10-20T20:58:45+02:00
+[INFO] Total time:  0.663 s
+[INFO] Finished at: 2024-10-22T11:39:20+02:00
 [INFO] ------------------------------------------------------------------------
