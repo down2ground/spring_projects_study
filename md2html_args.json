@@ -58,7 +58,7 @@
                     "image_alt": "Index" }
             ],
             "header_wide_only": [
-#                { "link": "https://add.your/link/here", "title": "GitHub", "external": true }
+                { "link": "https://github.com/down2ground/spring_projects_study", "title": "GitHub", "external": true }
             ],
             "sections": { "groups": ["sidebar"] },
             "ref": { "groups": ["sidebar"] },
