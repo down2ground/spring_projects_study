@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head><title>Main.java</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../../../../../../../favicon.png"/>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../layout/more_prog_langs.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../themes/light/more_prog_langs_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../custom.css">
+
+<link rel="stylesheet" type="text/css" href="../../../../../../../../layout/flex.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<a 
+class="header_item "
+href="../../../../../../../../../readme.html"><img 
+class="logo_image" src="../../../../../../../../favicon.png" /></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../../../../../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../../../../../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../../../../../../../index_page.html"><img 
+class="header_image index_image" src="../../../../../../../../layout/pict/search.png" /></a>
+
+<span class="source_file inactive toggle_wide_only_inline">&lt;/&gt;</span>
+
+<img class="headerNavArrows" src="../../../../../../../../layout/pict/previous_page_h21px_inactive.png"/>
+
+<img class="headerNavArrows" src="../../../../../../../../layout/pict/next_page_h21px_inactive.png"/>
+
+<span class="headerTitle">Main.java</span>
+
+</div>
+
+<div class="blockSrc">spring-sm-study/module01/src/main/java/springsmstudy01/Main.java</div>
+
+<pre class="highlight"><code class="language-java">package springsmstudy01;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.statemachine.StateMachine;
+import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+@Component
+public class Main {
+
+    @Autowired
+    private StateMachine&lt;String, String&gt; stateMachine;
+
+    public static void main(String[] args) throws Exception {
+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+                Main.class, SimplestStateMachineConfiguration.class)) {
+            context.getBean(Main.class).runDemo();
+        }
+    }
+
+    public void runDemo() throws Exception {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("| Event | State | Comment\n");
+        stringBuilder.append("| ----- | :-----: | -----\n");
+        stringBuilder.append("| | ").append(stateMachine.getState())
+                .append(" | SM is not started yet\n");
+
+        stateMachine.startReactively().subscribe();
+        sendEventAndPrintState(stringBuilder, null, "initial state");
+
+        sendEventAndPrintState(stringBuilder, "hungry", "");
+        sendEventAndPrintState(stringBuilder, "full", "");
+        sendEventAndPrintState(stringBuilder, "tired", "");
+        sendEventAndPrintState(stringBuilder, "vacation_ended", "no such transition");
+        sendEventAndPrintState(stringBuilder, "hungry", "");
+        sendEventAndPrintState(stringBuilder, "full", "");
+        sendEventAndPrintState(stringBuilder, "got_lazy", "no such event");
+        sendEventAndPrintState(stringBuilder, "vacation_ended", "");
+
+        System.out.println(stringBuilder);
+        Files.write(Paths.get("../output/simple_sm_output.txt"),
+                stringBuilder.toString().getBytes());
+    } // runDemo()
+
+    private void sendEventAndPrintState(StringBuilder stringBuilder, String event,
+                                        String comment) {
+        if (event != null) {
+            Message&lt;String&gt; message = MessageBuilder.withPayload(event).build();
+            stateMachine.sendEvent(Mono.just(message)).subscribe();
+        }
+        stringBuilder.append("| ")
+                .append(event == null ? " " : event).append(" | ")
+                .append(stateMachine.getState().getId()).append(" | ")
+                .append(comment).append("\n");
+    }
+}
+</code></pre>
+
+<p></p>
+
+</body>
+</html>

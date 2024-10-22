@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Patch c22be58cbf1ffdb0bf1f1a048408ca57823543fd</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../patch.css">
+<link rel="stylesheet" type="text/css" href="../../layout/flex.css">
+<link rel="stylesheet" type="text/css" href="../../custom.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<a 
+class="header_item "
+href="../../../readme.html"><img 
+class="logo_image" src="../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../index_page.html"><img 
+class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a>
+<a href="../../../doc_src/patches/c22be58cbf1ffdb0bf1f1a048408ca57823543fd.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+
+<img class="headerNavArrows" src="../../layout/pict/previous_page_h21px_inactive.png"
+alt="No back">
+
+<img class="headerNavArrows" src="../../layout/pict/next_page_h21px_inactive.png"
+alt="No next">
+
+<span class="headerTitle">Patch c22be58cbf1ffdb0bf1f1a048408ca57823543fd</span>
+
+</div>
+
+<h1 style="width: unset; max-width: unset;">Patch c22be58cbf1ffdb0bf1f1a048408ca57823543fd</h1>
+
+<p><strong>Commit message:</strong> 
+fsm-diagram-generator module added</p>
+<div class="patch_block">
+
+<span class="diff">diff --git a/.gitignore b/.gitignore</span><br />
+
+<span class="index">index a5a5f78..13316f8 100644</span><br />
+
+<span class="tree_minuses">--- a/.gitignore</span><br />
+
+<span class="tree_pluses">+++ b/.gitignore</span><br />
+
+<span class="two_ats">@@ -1 +1,2 @@</span><br />
+
+<span> /code/**/.idea/*</span><br />
+
+<ins>+/code/**/*.iml</ins><br />
+
+<span class="diff">diff --git a/code/spring-sm-study/fsm-diagram-generator/pom.xml b/code/spring-sm-study/fsm-diagram-generator/pom.xml</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..db09445</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/fsm-diagram-generator/pom.xml</span><br />
+
+<span class="two_ats">@@ -0,0 +1,38 @@</span><br />
+
+<ins>+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</ins><br />
+
+<ins>+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</ins><br />
+
+<ins>+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</ins><br />
+
+<ins>+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0</ins><br />
+
+<ins>+            http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</ins><br />
+
+<ins>+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;parent&gt;</ins><br />
+
+<ins>+        &lt;artifactId&gt;spring-sm-study&lt;/artifactId&gt;</ins><br />
+
+<ins>+        &lt;groupId&gt;world.spring-sm-study&lt;/groupId&gt;</ins><br />
+
+<ins>+        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</ins><br />
+
+<ins>+    &lt;/parent&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;artifactId&gt;fsm-diagram-generator&lt;/artifactId&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;dependencies&gt;</ins><br />
+
+<ins>+        &lt;dependency&gt;</ins><br />
+
+<ins>+            &lt;groupId&gt;world.spring-sm-study&lt;/groupId&gt;</ins><br />
+
+<ins>+            &lt;artifactId&gt;module01&lt;/artifactId&gt;</ins><br />
+
+<ins>+            &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</ins><br />
+
+<ins>+        &lt;/dependency&gt;</ins><br />
+
+<ins>+        &lt;dependency&gt;</ins><br />
+
+<ins>+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;</ins><br />
+
+<ins>+            &lt;artifactId&gt;spring-context&lt;/artifactId&gt;</ins><br />
+
+<ins>+            &lt;version&gt;${spring-context-version}&lt;/version&gt;</ins><br />
+
+<ins>+        &lt;/dependency&gt;</ins><br />
+
+<ins>+        &lt;dependency&gt;</ins><br />
+
+<ins>+            &lt;groupId&gt;org.springframework.statemachine&lt;/groupId&gt;</ins><br />
+
+<ins>+            &lt;artifactId&gt;spring-statemachine-core&lt;/artifactId&gt;</ins><br />
+
+<ins>+            &lt;version&gt;${spring-statemachine-version}&lt;/version&gt;</ins><br />
+
+<ins>+        &lt;/dependency&gt;</ins><br />
+
+<ins>+        &lt;dependency&gt;</ins><br />
+
+<ins>+            &lt;groupId&gt;net.sourceforge.plantuml&lt;/groupId&gt;</ins><br />
+
+<ins>+            &lt;artifactId&gt;plantuml&lt;/artifactId&gt;</ins><br />
+
+<ins>+            &lt;version&gt;8059&lt;/version&gt;</ins><br />
+
+<ins>+        &lt;/dependency&gt;</ins><br />
+
+<ins>+    &lt;/dependencies&gt;</ins><br />
+
+<ins>+&lt;/project&gt;</ins><br />
+
+<span class="diff">diff --git a/code/spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/StateMachineDiagramGenerator.java b/code/spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/StateMachineDiagramGenerator.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..a959f9a</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/StateMachineDiagramGenerator.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,32 @@</span><br />
+
+<ins>+package springsmdiagramgenerator;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import org.springframework.beans.factory.annotation.Autowired;</ins><br />
+
+<ins>+import org.springframework.context.annotation.AnnotationConfigApplicationContext;</ins><br />
+
+<ins>+import org.springframework.statemachine.StateMachine;</ins><br />
+
+<ins>+import org.springframework.stereotype.Component;</ins><br />
+
+<ins>+import springsmstudy01.SimplestStateMachineConfiguration;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import java.nio.file.Files;</ins><br />
+
+<ins>+import java.nio.file.Paths;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+@Component</ins><br />
+
+<ins>+public class StateMachineDiagramGenerator {</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    @Autowired</ins><br />
+
+<ins>+    private StateMachine&lt;String, String&gt; stateMachine;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    public static void main(String[] args) throws Exception {</ins><br />
+
+<ins>+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(</ins><br />
+
+<ins>+                StateMachineDiagramGenerator.class,</ins><br />
+
+<ins>+                SimplestStateMachineConfiguration.class)) {</ins><br />
+
+<ins>+            context.getBean(StateMachineDiagramGenerator.class).generateDiagram();</ins><br />
+
+<ins>+        }</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    public void generateDiagram() throws Exception {</ins><br />
+
+<ins>+        String diagramSource = Utils.generatePlantUMLDiagramSource(stateMachine, true);</ins><br />
+
+<ins>+        Files.writeString(Paths.get(&quot;../output/generated_sm_diagram.txt&quot;), diagramSource);</ins><br />
+
+<ins>+        Utils.generatePlantUMLDiagramCL(&quot;../output/generated_sm_diagram.txt&quot;, null);</ins><br />
+
+<ins>+        Utils.generatePlantUMLDiagram(diagramSource, &quot;../output/generated_sm_diagram_Lib.png&quot;);</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+}</ins><br />
+
+<span class="diff">diff --git a/code/spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/Utils.java b/code/spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/Utils.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..691d601</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/Utils.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,81 @@</span><br />
+
+<ins>+package springsmdiagramgenerator;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import net.sourceforge.plantuml.FileFormat;</ins><br />
+
+<ins>+import net.sourceforge.plantuml.FileFormatOption;</ins><br />
+
+<ins>+import net.sourceforge.plantuml.SourceStringReader;</ins><br />
+
+<ins>+import org.springframework.statemachine.StateMachine;</ins><br />
+
+<ins>+import org.springframework.statemachine.state.State;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import java.io.BufferedReader;</ins><br />
+
+<ins>+import java.io.FileOutputStream;</ins><br />
+
+<ins>+import java.io.IOException;</ins><br />
+
+<ins>+import java.io.InputStreamReader;</ins><br />
+
+<ins>+import java.util.ArrayList;</ins><br />
+
+<ins>+import java.util.HashSet;</ins><br />
+
+<ins>+import java.util.List;</ins><br />
+
+<ins>+import java.util.Optional;</ins><br />
+
+<ins>+import java.util.Set;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+public class Utils {</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    private static String PLANTUML_JAR = System.getenv(&quot;PLANTUML_JAR&quot;);</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    public static String generatePlantUMLDiagramSource(StateMachine&lt;String, String&gt; stateMachine,</ins><br />
+
+<ins>+                                                boolean addEndStates) {</ins><br />
+
+<ins>+        Set&lt;State&lt;String, String&gt;&gt; statesWithOutgoingTransitions = new HashSet&lt;&gt;();</ins><br />
+
+<ins>+        StringBuilder buffer = new StringBuilder(&quot;@startuml\n&quot;);</ins><br />
+
+<ins>+        Optional.ofNullable(stateMachine.getInitialState())</ins><br />
+
+<ins>+                .map(State::getId)</ins><br />
+
+<ins>+                .ifPresent((id) -&gt; buffer.append(&quot;[*] -&gt; &quot;).append(id).append(&quot;\n&quot;));</ins><br />
+
+<ins>+        stateMachine.getTransitions().forEach(transition -&gt; {</ins><br />
+
+<ins>+            buffer.append(transition.getSource().getId()).append(&quot; --&gt; &quot;)</ins><br />
+
+<ins>+                    .append(transition.getTarget().getId())</ins><br />
+
+<ins>+                    .append(&quot; : &quot;).append(transition.getTrigger().getEvent())</ins><br />
+
+<ins>+                    .append(&quot;\n&quot;);</ins><br />
+
+<ins>+            if (addEndStates) {</ins><br />
+
+<ins>+                statesWithOutgoingTransitions.add(transition.getSource());</ins><br />
+
+<ins>+            }</ins><br />
+
+<ins>+        });</ins><br />
+
+<ins>+        if (addEndStates) {</ins><br />
+
+<ins>+            stateMachine.getStates().stream()</ins><br />
+
+<ins>+                    .filter(state -&gt; !statesWithOutgoingTransitions.contains(state))</ins><br />
+
+<ins>+                    .forEach(endState -&gt; {</ins><br />
+
+<ins>+                        String endStateId = endState.getId();</ins><br />
+
+<ins>+                        buffer.append(endStateId).append(&quot; -&gt; [*]\n&quot;);</ins><br />
+
+<ins>+                    });</ins><br />
+
+<ins>+        }</ins><br />
+
+<ins>+        buffer.append(&quot;@enduml&quot;);</ins><br />
+
+<ins>+        return buffer.toString();</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    public static void generatePlantUMLDiagramCL(String sourceFile, String outputDir)</ins><br />
+
+<ins>+            throws Exception {</ins><br />
+
+<ins>+        List&lt;String&gt; command = new ArrayList&lt;&gt;();</ins><br />
+
+<ins>+        command.add(&quot;java&quot;);</ins><br />
+
+<ins>+        command.add(&quot;-jar&quot;);</ins><br />
+
+<ins>+        command.add(PLANTUML_JAR);</ins><br />
+
+<ins>+        if (outputDir != null) {</ins><br />
+
+<ins>+            command.add(&quot;-o&quot;);</ins><br />
+
+<ins>+            command.add(outputDir);</ins><br />
+
+<ins>+        }</ins><br />
+
+<ins>+        command.add(sourceFile);</ins><br />
+
+<ins>+        ProcessBuilder processBuilder = new ProcessBuilder(command);</ins><br />
+
+<ins>+        processBuilder.redirectErrorStream(true);</ins><br />
+
+<ins>+        Process process = processBuilder.start();</ins><br />
+
+<ins>+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));</ins><br />
+
+<ins>+        String line;</ins><br />
+
+<ins>+        while ((line = reader.readLine()) != null) {</ins><br />
+
+<ins>+            System.out.println(line);</ins><br />
+
+<ins>+        }</ins><br />
+
+<ins>+        int exitCode = process.waitFor();</ins><br />
+
+<ins>+            System.out.println(exitCode == 0 ? &quot;Diagram generated successfully.&quot; :</ins><br />
+
+<ins>+                    &quot;Error in generating diagram. Exit code: &quot; + exitCode);</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    public static void generatePlantUMLDiagram(String diagramSource, String outputPath)</ins><br />
+
+<ins>+            throws IOException {</ins><br />
+
+<ins>+        SourceStringReader reader = new SourceStringReader(diagramSource);</ins><br />
+
+<ins>+        FileOutputStream output = new FileOutputStream(outputPath);</ins><br />
+
+<ins>+        reader.generateImage(output, new FileFormatOption(FileFormat.PNG, false));</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+}</ins><br />
+
+</div>
+
+<p></p>
+
+<p>&nbsp;</p>
+
+</body>
+</html>

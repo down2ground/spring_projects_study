@@ -27,6 +27,8 @@ After some manual cleanup the following result is obtained:
 The following setting in the POM will carry out the assembled artifacts from our code base
 (the variable `TMP_MAVEN_BUILDS_DIR` must be set in the system):
 
+<div class="blockSrc">pom.xml</div>
+
 ````xml
     ...
     <build>
@@ -35,6 +37,7 @@ The following setting in the POM will carry out the assembled artifacts from our
     ...
 ````
 
+<a name="dependency_tree_generation"></a>
 The following command generates the dependency tree that shows that there are no dependencies used:
 
 ````wrapped-shell
@@ -47,7 +50,7 @@ It's very likely not required in other environments.
 The result is [here](<!--wrap_text spring-sm-study/dependency_tree.txt-->).
 
 Running in the command line. In the current environment the default Java version is not 17
-so need some extra settings first:
+so we need some extra settings first:
 
 ````wrapped-shell
 >set JAVA_HOME=%JAVA_17_HOME%
@@ -60,6 +63,73 @@ so need some extra settings first:
 Hello world 01!
 ````
 
+----------------------------------------------------------------------------------------------------
+# Simple state machine
+
+<!--git ["080d533d22e57f2ff6dc16288098951839dc071a", "simple state machine investigated"]-->
+
+[Dependency tree regeneration](#dependency_tree_generation):
+
+<!--git ["d4ba2edeef626adc57e4163dfea7e3e0ca5831c1", "dependency tree regenerated"]-->
+
+The following state machine is defined:
+
+<!--block_source_java spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java-->
+
+````java
+<!--include {"file": "spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java",
+"start-with": "@Configuration"}-->
+````
+
+<!--index ["@EnableStateMachine", "@EnableStateMachineFactory"]-->
+The `@EnableStateMachine` annotation adds the `StateMachine<?, ?>` bean to the context. There's
+the other annotation `@EnableStateMachineFactory` that is probably intended for the cases where
+there are more than one state machines in the context. It's going to be discussed later.
+
+In the main class we autowire the state machine, start it, send to it different events and watch
+the states to which it transitions after that. The results are printed in Markdown table format:
+
+<!--block_source_java spring-sm-study/module01/src/main/java/springsmstudy01/Main.java-->
+
+````java
+<!--include {"file": "spring-sm-study/module01/src/main/java/springsmstudy01/Main.java",
+"start-with": "    public void runDemo()", "end-marker": "// runDemo()"}-->
+````
+
+Below is the investigation results and the state machine diagram:
+
+<p><img src="<!--path output-->generated_sm_diagram_Lib.png" class="floatRight" /></p>
+
+<!--include output/simple_sm_output.txt-->
+
+The state machine diagram extraction is described
+[here](<!--page sidesteps-->#fsm_diagram_extraction).
+
+<p style="clear: both;"></p>
+
+Several remarks need to be made here.
+
+<!--index ["reactive programming", "Mono class"]-->
+The `stateMachine.startReactively()` method is used
+instead of the deprecated `start()` method. The `stateMachine.sendEvent()` method is also
+deprecated so its reactive variation is used. This methods return a
+`reactor.core.publisher.Mono<T>` class instance that is useful to be studied (as well as
+the **reactive programming** topic) but not in the scope of this Spring Statemachine study course.
+
+By default, if an event is sent that doesn't trigger any valid transition, the state machine
+ignores it without throwing an error. In our experiments above sometimes we sent such events 
+and this behavior was confirmed. See the "vacation_ended" event in the "Sleeping" state and
+the "got_lazy" event (that is not defined in the SM at all) --- the SM just stayed in the
+same state. This behavior may be redefined and that is discussed in the
+[separate section](#using_state_machine_listener).
+
+----------------------------------------------------------------------------------------------------
+<!--index ["StateMachineListener interface"]-->
+# Using state machine listener {#using_state_machine_listener}
+
+By default, if an event is sent that doesn't trigger any valid transition, the state machine
+ignores it without throwing an error. We can redefine how Spring Statemachine handles invalid
+or undefined events using the `StateMachineListener` interface.
 
 
 

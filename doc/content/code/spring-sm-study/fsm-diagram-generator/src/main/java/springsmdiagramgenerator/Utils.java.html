@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head><title>Utils.java</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../../../../../../../favicon.png"/>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../layout/more_prog_langs.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../themes/light/more_prog_langs_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../custom.css">
+
+<link rel="stylesheet" type="text/css" href="../../../../../../../../layout/flex.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<a 
+class="header_item "
+href="../../../../../../../../../readme.html"><img 
+class="logo_image" src="../../../../../../../../favicon.png" /></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../../../../../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../../../../../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../../../../../../../index_page.html"><img 
+class="header_image index_image" src="../../../../../../../../layout/pict/search.png" /></a>
+
+<span class="source_file inactive toggle_wide_only_inline">&lt;/&gt;</span>
+
+<img class="headerNavArrows" src="../../../../../../../../layout/pict/previous_page_h21px_inactive.png"/>
+
+<img class="headerNavArrows" src="../../../../../../../../layout/pict/next_page_h21px_inactive.png"/>
+
+<span class="headerTitle">Utils.java</span>
+
+</div>
+
+<div class="blockSrc">spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/Utils.java</div>
+
+<pre class="highlight"><code class="language-java">package springsmdiagramgenerator;
+
+import net.sourceforge.plantuml.FileFormat;
+import net.sourceforge.plantuml.FileFormatOption;
+import net.sourceforge.plantuml.SourceStringReader;
+import org.springframework.statemachine.StateMachine;
+import org.springframework.statemachine.state.State;
+
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+public class Utils {
+
+    private static String PLANTUML_JAR = System.getenv("PLANTUML_JAR");
+
+    public static String generatePlantUMLDiagramSource(StateMachine&lt;String, String&gt; stateMachine,
+                                                boolean addEndStates) {
+        Set&lt;State&lt;String, String&gt;&gt; statesWithOutgoingTransitions = new HashSet&lt;&gt;();
+        StringBuilder buffer = new StringBuilder("@startuml\n");
+        Optional.ofNullable(stateMachine.getInitialState())
+                .map(State::getId)
+                .ifPresent((id) -&gt; buffer.append("[*] -&gt; ").append(id).append("\n"));
+        stateMachine.getTransitions().forEach(transition -&gt; {
+            buffer.append(transition.getSource().getId()).append(" --&gt; ")
+                    .append(transition.getTarget().getId())
+                    .append(" : ").append(transition.getTrigger().getEvent())
+                    .append("\n");
+            if (addEndStates) {
+                statesWithOutgoingTransitions.add(transition.getSource());
+            }
+        });
+        if (addEndStates) {
+            stateMachine.getStates().stream()
+                    .filter(state -&gt; !statesWithOutgoingTransitions.contains(state))
+                    .forEach(endState -&gt; {
+                        String endStateId = endState.getId();
+                        buffer.append(endStateId).append(" -&gt; [*]\n");
+                    });
+        }
+        buffer.append("@enduml");
+        return buffer.toString();
+    }
+
+    public static void generatePlantUMLDiagramCL(String sourceFile, String outputDir)
+            throws Exception {
+        List&lt;String&gt; command = new ArrayList&lt;&gt;();
+        command.add("java");
+        command.add("-jar");
+        command.add(PLANTUML_JAR);
+        if (outputDir != null) {
+            command.add("-o");
+            command.add(outputDir);
+        }
+        command.add(sourceFile);
+        ProcessBuilder processBuilder = new ProcessBuilder(command);
+        processBuilder.redirectErrorStream(true);
+        Process process = processBuilder.start();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+        int exitCode = process.waitFor();
+            System.out.println(exitCode == 0 ? "Diagram generated successfully." :
+                    "Error in generating diagram. Exit code: " + exitCode);
+    }
+
+    public static void generatePlantUMLDiagram(String diagramSource, String outputPath)
+            throws IOException {
+        SourceStringReader reader = new SourceStringReader(diagramSource);
+        FileOutputStream output = new FileOutputStream(outputPath);
+        reader.generateImage(output, new FileFormatOption(FileFormat.PNG, false));
+    }
+}
+</code></pre>
+
+<p></p>
+
+</body>
+</html>

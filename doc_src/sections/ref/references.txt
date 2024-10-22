@@ -15,6 +15,6 @@ Dec 7, 2019, duration 1:36:48
 by [SpringDeveloper](https://www.youtube.com/@SpringSourceDev),    
 Apr 25, 2018, duration 59:45
 
-
+<!--refdef chat_gpt--> ChatGPT: <https://chat.openai.com/>
 
 

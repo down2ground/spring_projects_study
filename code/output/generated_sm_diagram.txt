@@ -1,0 +1,10 @@
+@startuml
+[*] -> Vacation
+Vacation --> Eating : hungry
+Eating --> Relaxing : full
+Relaxing --> Eating : hungry
+Relaxing --> Sleeping : tired
+Sleeping --> Eating : hungry
+Relaxing --> Working : vacation_ended
+Working -> [*]
+@enduml

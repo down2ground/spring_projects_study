@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Sidesteps</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../../layout/more_prog_langs.css">
+<link rel="stylesheet" type="text/css" href="../../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../themes/light/more_prog_langs_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../custom.css">
+
+<link rel="stylesheet" type="text/css" href="../../../layout/flex.css">
+</head>
+<body>
+
+<div class="header">
+<img id="burger" src="../../../layout/pict/burger.png" 
+onclick="toggleSidebar();return false;" class="toggle_narrow_only_inline" alt="Sidebar">
+
+<a 
+class="header_item "
+href="../../../../readme.html"><img 
+class="logo_image" src="../../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../../index_page.html"><img 
+class="header_image index_image" src="../../../layout/pict/search.png" alt="Index"></a>
+<a href="../../../../doc_src/sections/sidesteps/sidesteps.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+<a href="../ref/references.html" title="Previous: References"><img class="headerNavArrows"
+src="../../../layout/pict/previous_page_h21px.png" alt="Back"></a>
+ 
+
+<img class="headerNavArrows" src="../../../layout/pict/next_page_h21px_inactive.png"
+alt="No next">
+
+<span class="headerTitle">Sidesteps</span>
+
+</div>
+
+<div class="sidebarWrapper">
+<div class="sidebar">
+    <table class="sidebarAligner">
+        <tr><td class="valign_top">
+            <div class="align_right toggle_narrow_only_block">
+            <a href="../../../../doc_src/sections/sidesteps/sidesteps.txt" class="sidebar_item_inline source_file align_right" 
+                title="Source text">&lt;/&gt;</a>
+            
+            </div>
+            <div class="sidebar_block">
+            
+            <a class="sidebar_item " href="../../../../readme.html">Home</a>
+            <a class="sidebar_item " href="../spring_statemachine.html">Spring Statemachine</a>
+            </div><div class="sidebar_block">
+            
+            <a class="sidebar_item " href="../ref/references.html">References</a>
+            </div><div class="sidebar_block">
+            
+            <a class="sidebar_item selected " href="sidesteps.html">Sidesteps</a>
+            </div>
+        </td></tr>
+        <tr><td class="bottom valign_bottom">        </td></tr>
+    </table>
+</div>
+</div>
+
+<p style="font-size:44px;font-weight:bold;margin:0 0 30px 0;">Sidesteps</p>
+
+<div class="toc">
+<ul>
+<li><a href="#fsm_diagram_extraction">State diagram extraction</a><ul>
+<li><a href="#considerations">Considerations</a></li>
+<li><a href="#implementation">Implementation</a></li>
+</ul>
+</li>
+<li><a href="#plantuml_setup">PlantUML setup</a></li>
+</ul>
+</div>
+<hr />
+<p><a name="index_entry_index_1"></a></p>
+<h1 id="fsm_diagram_extraction">State diagram extraction</h1>
+<p>Chat GPT [<a class="ref" href="../ref/references.html#chat_gpt">chat_gpt</a>] was used to investigate and implement this solution.</p>
+<h2 id="considerations">Considerations</h2>
+<p>Spring State Machine doesn't have a built-in tool to directly generate UML diagrams from our
+state machine configuration, so we need to create it manually. There are two possible approaches:</p>
+<ul>
+<li><strong>Parsing the FSM configuration Java code</strong> using tools like JavaParser or other static analysis
+    libraries. This can be tricky, especially with complex configurations, use of variables,
+    or conditions in transition definitions. Handling conditionals, guards, or dynamic
+    state/transition definitions might require complex handling logic</li>
+<li><strong>Using introspection (runtime reflection).</strong> This way we capture the real state machine that
+    the Spring State Machine framework builds. If the configuration is dynamic or conditional,
+    this approach will reflect the actual result. Spring's state machine API has methods to
+    retrieve the states and transitions at runtime (e.g., <code>stateMachine.getStates()</code> and
+    <code>stateMachine.getTransitions()</code>), so it's easier to query and extract this information
+    directly. Still this may not be suitable for all use cases. If the FSM is configured
+    dynamically at runtime (e.g., based on external inputs), generating an accurate diagram might
+    depend on the specific inputs provided during runtime</li>
+</ul>
+<p>We are going to start with the runtime introspection approach since it's simpler to implement
+and captures the actual state machine configuration at runtime.</p>
+<h2 id="implementation">Implementation</h2>
+<blockquote>
+<p>Git commit: <a href="../../patches/c22be58cbf1ffdb0bf1f1a048408ca57823543fd.html"><code>c22be58cbf1ffdb0bf1f1a048408ca57823543fd</code></a>
+fsm-diagram-generator module added</p>
+</blockquote>
+<p>Here's the Maven project structure:</p>
+<pre class="highlight"><code class="language-shell">&gt;tree /f
+└───spring-sm-study
+    │   pom.xml
+    ├───fsm-diagram-generator
+    │   │   pom.xml
+    │   └───src
+    │       └───main
+    │           └───java
+    │               └───springsmdiagramgenerator
+    │                       StateMachineDiagramGenerator.java
+    │                       Utils.java
+    └───module01
+        │   pom.xml
+        └───src
+            └───main
+                └───java
+                    └───springsmstudy01
+                            Main.java
+                            SimplestStateMachineConfiguration.java</code></pre>
+<p><code>spring-sm-study</code> is the main Maven project. The <code>module01</code> module is the module where our 
+state machine is defined. The <code>fsm-diagram-generator</code> is the module that investigates the 
+state machine from the <code>module01</code> module.</p>
+<p><code>fsm-diagram-generator</code> is a standalone module that has a dependency on the
+<code>module01</code> module, but without including it in the main project's <code>&lt;modules&gt;</code> section.
+This way, it remains invisible to the main project and is only used as an independent
+tool for generating UML diagrams. This module may be added the the project locally for the
+project's state machines investigation and it may be protected from being committed using the
+Git ignore mechanisms.</p>
+<p>There's an inconvenience related to the module standalone state &mdash; the module with the state
+machine should be installed to the local repository e.g. with the command
+<code>mvn -pl module01 clean install</code>.</p>
+<p>Here's the main class:</p>
+<div class="blockSrc"><a href="../../code/spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/StateMachineDiagramGenerator.java.html">spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/StateMachineDiagramGenerator.java</a></div>
+
+<pre class="highlight"><code class="language-java">@Component
+public class StateMachineDiagramGenerator {
+
+    @Autowired
+    private StateMachine&lt;String, String&gt; stateMachine;
+
+    public static void main(String[] args) throws Exception {
+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+                StateMachineDiagramGenerator.class,
+                SimplestStateMachineConfiguration.class)) {
+            context.getBean(StateMachineDiagramGenerator.class).generateDiagram();
+        }
+    }
+
+    public void generateDiagram() throws Exception {
+        String diagramSource = Utils.generatePlantUMLDiagramSource(stateMachine, true);
+        Files.writeString(Paths.get("../output/generated_sm_diagram.txt"), diagramSource);
+        Utils.generatePlantUMLDiagramCL("../output/generated_sm_diagram.txt", null);
+        Utils.generatePlantUMLDiagram(diagramSource, "../output/generated_sm_diagram_Lib.png");
+    }
+}</code></pre>
+<p>It autowires the state machine that we want to investigate, then it extracts the PlantUML
+source text from the state machine and generates the diagram image using two methods:</p>
+<ul>
+<li>with the PlantUML library as a Maven dependency <code>net.sourceforge.plantuml:plantuml:8059</code>
+    (the <code>generatePlantUMLDiagram()</code> method)</li>
+<li>with the installed PlantUML instance via the <code>java.lang.Process</code> class
+    (the <code>generatePlantUMLDiagramCL()</code> method)</li>
+</ul>
+<p>For more details see the Git commit above. Also see <a href="#plantuml_setup">PlantUML setup</a>.</p>
+<p>Here's the method that extracts the SM diagram PlantUML source text:</p>
+<div class="blockSrc"><a href="../../code/spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/Utils.java.html">spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/Utils.java</a></div>
+
+<pre class="highlight"><code class="language-java">    public static String generatePlantUMLDiagramSource(StateMachine&lt;String, String&gt; stateMachine,
+                                                boolean addEndStates) {
+        Set&lt;State&lt;String, String&gt;&gt; statesWithOutgoingTransitions = new HashSet&lt;&gt;();
+        StringBuilder buffer = new StringBuilder("@startuml\n");
+        Optional.ofNullable(stateMachine.getInitialState())
+                .map(State::getId)
+                .ifPresent((id) -&gt; buffer.append("[*] -&gt; ").append(id).append("\n"));
+        stateMachine.getTransitions().forEach(transition -&gt; {
+            buffer.append(transition.getSource().getId()).append(" --&gt; ")
+                    .append(transition.getTarget().getId())
+                    .append(" : ").append(transition.getTrigger().getEvent())
+                    .append("\n");
+            if (addEndStates) {
+                statesWithOutgoingTransitions.add(transition.getSource());
+            }
+        });
+        if (addEndStates) {
+            stateMachine.getStates().stream()
+                    .filter(state -&gt; !statesWithOutgoingTransitions.contains(state))
+                    .forEach(endState -&gt; {
+                        String endStateId = endState.getId();
+                        buffer.append(endStateId).append(" -&gt; [*]\n");
+                    });
+        }
+        buffer.append("@enduml");
+        return buffer.toString();
+    }</code></pre>
+<p>It's mostly trivial but one remark should be made. As for now there's the
+<code>stateMachine.getInitialState()</code> method but there's no <code>stateMachine.getEndState()</code> method
+(though this state may be defined in the SM configuration). Because of that the end states are 
+detected indirectly as the states that don't have outgoing transitions.</p>
+<hr />
+<p><a name="index_entry_index_2"></a></p>
+<h1 id="plantuml_setup">PlantUML setup</h1>
+<p>GitHub: <a href="https://github.com/plantuml/plantuml">https://github.com/plantuml/plantuml</a>  <br />
+Home page: <a href="https://plantuml.com/">https://plantuml.com/</a></p>
+<blockquote>
+<p><p><img src="../../../pict/plantuml_logo.png" class="floatRight" width=150 /></p></p>
+<p><strong>PlantUML</strong> is a highly versatile tool that facilitates the rapid and straightforward creation
+of a wide array of diagrams.</p>
+<p><p style="clear: both;"></p> </p>
+</blockquote>
+<p>There are two options for running PlantUML from Java code. The first is using the following Maven
+dependency:</p>
+<pre class="highlight"><code class="language-xml">        &lt;dependency&gt;
+            &lt;groupId&gt;net.sourceforge.plantuml&lt;/groupId&gt;
+            &lt;artifactId&gt;plantuml&lt;/artifactId&gt;
+            &lt;version&gt;8059&lt;/version&gt;
+        &lt;/dependency&gt;</code></pre>
+<p>The code may look like this:</p>
+<pre class="highlight"><code class="language-java">    private void generatePlantUMLDiagram(String diagramSource, String outputPath)
+            throws IOException {
+        SourceStringReader reader = new SourceStringReader(diagramSource);
+        FileOutputStream output = new FileOutputStream(outputPath);
+        reader.generateImage(output, new FileFormatOption(FileFormat.PNG, false));
+    }</code></pre>
+<p>It worked and for the following state machine definition:</p>
+<p><img src="../../../pict/generated_sm_diagram.png" class="floatRight" /></p>
+
+<pre class="highlight"><code>@startuml
+[*] -&gt; Vacation
+Vacation --&gt; Eating : hungry
+Eating --&gt; Relaxing : full
+Relaxing --&gt; Eating : hungry
+Relaxing --&gt; Sleeping : tired
+Sleeping --&gt; Eating : hungry
+Relaxing --&gt; Working : vacation_ended
+Working -&gt; [*]
+@enduml</code></pre>
+<p>it generated the diagram show in the picture.</p>
+<p>Though there was a problem: At the beginning the PlantUML library couldn't find the Graphviz
+<code>dot</code> executable. It was solved by setting the <strong><code>GRAPHVIZ_DOT</code></strong> environment variable with the 
+full path to the <code>dot</code> executable (including the executable file name).</p>
+<p>Also see the PlantUML forum thread: <a href="https://forum.plantuml.net/16352/recent-puml-doesnt-find-dot?show=16352">recent puml doesn't find dot</a>.</p>
+<p style="clear: both;"></p>
+
+<p>The second way is using the <code>java.lang.Process</code> class. The download page is
+<a href="https://plantuml.com/download">https://plantuml.com/download</a>, the artifact <code>plantuml-1.2024.7.jar</code> (GNU General Public License)
+was used.</p>
+<p>The code may be like this:</p>
+<pre class="highlight"><code class="language-java">    private static String PLANTUML_JAR = System.getenv("PLANTUML_JAR");
+
+    private void generatePlantUMLDiagramCL(String sourceFile) throws Exception {
+        ProcessBuilder processBuilder = new ProcessBuilder(List.of(
+                "java", "-jar", PLANTUML_JAR, sourceFile
+        ));
+        processBuilder.redirectErrorStream(true);
+        Process process = processBuilder.start();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+        int exitCode = process.waitFor();
+            System.out.println(exitCode == 0 ? "Diagram generated successfully." :
+                    "Error in generating diagram. Exit code: " + exitCode);
+    }</code></pre>
+<p>To make it work the <strong><code>PLANTUML_JAR</code></strong> environment variable should be set with the full path
+to the PlantUML JAR-file, like <code>c:\blah\blah\blah\plantuml-1.2024.7.jar</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Looks like in the command line it's impossible to specify the certain output file name, only
+the output directory. See <code>java -jar %PLANTUML_JAR% -help</code>.</p>
+</div>
+<p>&nbsp;</p>
+<hr />
+
+<p style="margin-top:0px;margin-bottom:0px;text-align:right;"><a href="../ref/references.html" 
+title="Previous: References"><img src="../../../layout/pict/previous_page.png"
+alt="Back"></a>
+
+<img src="../../../layout/pict/next_page_inactive.png" alt="No next"></p>
+
+<script>
+function toggleSidebar() {
+    let sidebar = document.getElementsByClassName("sidebarWrapper")[0]
+    let display = sidebar.style.display
+    if (!display || display == "none") {
+        sidebar.style.display = "block"
+    } else {
+        sidebar.style.display = ""
+    }
+}
+</script>
+
+</body>
+</html>

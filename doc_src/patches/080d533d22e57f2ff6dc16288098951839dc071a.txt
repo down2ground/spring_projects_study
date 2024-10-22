@@ -1,0 +1,334 @@
+<!--VARIABLES {"title": "Patch 080d533d22e57f2ff6dc16288098951839dc071a"}--> 
+ 
+<strong>Commit message:</strong> 
+simple state machine investigated
+
+ 
+<div class="patch_block">
+
+<span class="diff">diff --git a/code/spring-sm-study/module01/pom.xml b/code/spring-sm-study/module01/pom.xml</span><br />
+
+<span class="index">index c0b70b4..9b5129b 100644</span><br />
+
+<span class="tree_minuses">--- a/code/spring-sm-study/module01/pom.xml</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/module01/pom.xml</span><br />
+
+<span class="two_ats">@@ -13,10 +13,16 @@</span><br />
+
+<span> </span><br />
+
+<span>     &lt;artifactId&gt;module01&lt;/artifactId&gt;</span><br />
+
+<span> </span><br />
+
+<del>-    &lt;properties&gt;</del><br />
+
+<del>-        &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;</del><br />
+
+<del>-        &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;</del><br />
+
+<del>-        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</del><br />
+
+<del>-    &lt;/properties&gt;</del><br />
+
+<del>-</del><br />
+
+<ins>+    &lt;dependencies&gt;</ins><br />
+
+<ins>+        &lt;dependency&gt;</ins><br />
+
+<ins>+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;</ins><br />
+
+<ins>+            &lt;artifactId&gt;spring-context&lt;/artifactId&gt;</ins><br />
+
+<ins>+            &lt;version&gt;${spring-context-version}&lt;/version&gt;</ins><br />
+
+<ins>+        &lt;/dependency&gt;</ins><br />
+
+<ins>+        &lt;dependency&gt;</ins><br />
+
+<ins>+            &lt;groupId&gt;org.springframework.statemachine&lt;/groupId&gt;</ins><br />
+
+<ins>+            &lt;artifactId&gt;spring-statemachine-core&lt;/artifactId&gt;</ins><br />
+
+<ins>+            &lt;version&gt;${spring-statemachine-version}&lt;/version&gt;</ins><br />
+
+<ins>+        &lt;/dependency&gt;</ins><br />
+
+<ins>+    &lt;/dependencies&gt;</ins><br />
+
+<span> &lt;/project&gt;</span><br />
+
+<span class="diff">diff --git a/code/spring-sm-study/module01/src/main/java/springsmstudy/Main.java b/code/spring-sm-study/module01/src/main/java/springsmstudy/Main.java</span><br />
+
+<span>deleted file mode 100644</span><br />
+
+<span class="index">index ae806d5..0000000</span><br />
+
+<span class="tree_minuses">--- a/code/spring-sm-study/module01/src/main/java/springsmstudy/Main.java</span><br />
+
+<span class="tree_pluses">+++ /dev/null</span><br />
+
+<span class="two_ats">@@ -1,7 +0,0 @@</span><br />
+
+<del>-package springsmstudy;</del><br />
+
+<del>-</del><br />
+
+<del>-public class Main {</del><br />
+
+<del>-    public static void main(String[] args) {</del><br />
+
+<del>-        System.out.println(&quot;Hello world 01!&quot;);</del><br />
+
+<del>-    }</del><br />
+
+<del>-}</del><br />
+
+<span class="diff">diff --git a/code/spring-sm-study/module01/src/main/java/springsmstudy01/Main.java b/code/spring-sm-study/module01/src/main/java/springsmstudy01/Main.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..56f18fd</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/module01/src/main/java/springsmstudy01/Main.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,62 @@</span><br />
+
+<ins>+package springsmstudy01;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import org.springframework.beans.factory.annotation.Autowired;</ins><br />
+
+<ins>+import org.springframework.context.annotation.AnnotationConfigApplicationContext;</ins><br />
+
+<ins>+import org.springframework.messaging.Message;</ins><br />
+
+<ins>+import org.springframework.messaging.support.MessageBuilder;</ins><br />
+
+<ins>+import org.springframework.statemachine.StateMachine;</ins><br />
+
+<ins>+import org.springframework.stereotype.Component;</ins><br />
+
+<ins>+import reactor.core.publisher.Mono;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import java.nio.file.Files;</ins><br />
+
+<ins>+import java.nio.file.Paths;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+@Component</ins><br />
+
+<ins>+public class Main {</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    @Autowired</ins><br />
+
+<ins>+    private StateMachine&lt;String, String&gt; stateMachine;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    public static void main(String[] args) throws Exception {</ins><br />
+
+<ins>+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(</ins><br />
+
+<ins>+                Main.class, SimplestStateMachineConfiguration.class)) {</ins><br />
+
+<ins>+            context.getBean(Main.class).runDemo();</ins><br />
+
+<ins>+        }</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    public void runDemo() throws Exception {</ins><br />
+
+<ins>+        StringBuilder stringBuilder = new StringBuilder();</ins><br />
+
+<ins>+        stringBuilder.append(&quot;| Event | State | Comment\n&quot;);</ins><br />
+
+<ins>+        stringBuilder.append(&quot;| ----- | :-----: | -----\n&quot;);</ins><br />
+
+<ins>+        stringBuilder.append(&quot;| | &quot;).append(stateMachine.getState())</ins><br />
+
+<ins>+                .append(&quot; | SM is not started yet\n&quot;);</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+        stateMachine.startReactively().subscribe();</ins><br />
+
+<ins>+        sendEventAndPrintState(stringBuilder, null, &quot;initial state&quot;);</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+        sendEventAndPrintState(stringBuilder, &quot;hungry&quot;, &quot;&quot;);</ins><br />
+
+<ins>+        sendEventAndPrintState(stringBuilder, &quot;full&quot;, &quot;&quot;);</ins><br />
+
+<ins>+        sendEventAndPrintState(stringBuilder, &quot;tired&quot;, &quot;&quot;);</ins><br />
+
+<ins>+        sendEventAndPrintState(stringBuilder, &quot;vacation_ended&quot;, &quot;no such transition&quot;);</ins><br />
+
+<ins>+        sendEventAndPrintState(stringBuilder, &quot;hungry&quot;, &quot;&quot;);</ins><br />
+
+<ins>+        sendEventAndPrintState(stringBuilder, &quot;full&quot;, &quot;&quot;);</ins><br />
+
+<ins>+        sendEventAndPrintState(stringBuilder, &quot;got_lazy&quot;, &quot;no such event&quot;);</ins><br />
+
+<ins>+        sendEventAndPrintState(stringBuilder, &quot;vacation_ended&quot;, &quot;&quot;);</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+        System.out.println(stringBuilder);</ins><br />
+
+<ins>+        Files.write(Paths.get(&quot;../output/simple_sm_output.txt&quot;),</ins><br />
+
+<ins>+                stringBuilder.toString().getBytes());</ins><br />
+
+<ins>+    } // runDemo()</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    private void sendEventAndPrintState(StringBuilder stringBuilder, String event,</ins><br />
+
+<ins>+                                        String comment) {</ins><br />
+
+<ins>+        if (event != null) {</ins><br />
+
+<ins>+            Message&lt;String&gt; message = MessageBuilder.withPayload(event).build();</ins><br />
+
+<ins>+            stateMachine.sendEvent(Mono.just(message)).subscribe();</ins><br />
+
+<ins>+        }</ins><br />
+
+<ins>+        stringBuilder.append(&quot;| &quot;)</ins><br />
+
+<ins>+                .append(event == null ? &quot; &quot; : event).append(&quot; | &quot;)</ins><br />
+
+<ins>+                .append(stateMachine.getState().getId()).append(&quot; | &quot;)</ins><br />
+
+<ins>+                .append(comment).append(&quot;\n&quot;);</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+}</ins><br />
+
+<span class="diff">diff --git a/code/spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java b/code/spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..55e318f</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,35 @@</span><br />
+
+<ins>+package springsmstudy01;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import org.springframework.context.annotation.Configuration;</ins><br />
+
+<ins>+import org.springframework.statemachine.config.EnableStateMachine;</ins><br />
+
+<ins>+import org.springframework.statemachine.config.StateMachineConfigurerAdapter;</ins><br />
+
+<ins>+import org.springframework.statemachine.config.builders.StateMachineStateConfigurer;</ins><br />
+
+<ins>+import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import java.util.Set;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+@Configuration</ins><br />
+
+<ins>+@EnableStateMachine</ins><br />
+
+<ins>+public class SimplestStateMachineConfiguration</ins><br />
+
+<ins>+        extends StateMachineConfigurerAdapter&lt;String, String&gt; {</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    @Override</ins><br />
+
+<ins>+    public void configure(StateMachineStateConfigurer&lt;String, String&gt; states)</ins><br />
+
+<ins>+            throws Exception {</ins><br />
+
+<ins>+        states.withStates()</ins><br />
+
+<ins>+                .initial(&quot;Vacation&quot;)</ins><br />
+
+<ins>+                .end(&quot;Working&quot;)</ins><br />
+
+<ins>+                .states(Set.of(&quot;Eating&quot;, &quot;Relaxing&quot;, &quot;Sleeping&quot;));</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    @Override</ins><br />
+
+<ins>+    public void configure(StateMachineTransitionConfigurer&lt;String, String&gt; transitions)</ins><br />
+
+<ins>+            throws Exception {</ins><br />
+
+<ins>+        transitions.withExternal().source(&quot;Vacation&quot;).target(&quot;Eating&quot;).event(&quot;hungry&quot;)</ins><br />
+
+<ins>+                .and().withExternal().source(&quot;Eating&quot;).target(&quot;Relaxing&quot;).event(&quot;full&quot;)</ins><br />
+
+<ins>+                .and().withExternal().source(&quot;Relaxing&quot;).target(&quot;Eating&quot;).event(&quot;hungry&quot;)</ins><br />
+
+<ins>+                .and().withExternal().source(&quot;Relaxing&quot;).target(&quot;Sleeping&quot;).event(&quot;tired&quot;)</ins><br />
+
+<ins>+                .and().withExternal().source(&quot;Sleeping&quot;).target(&quot;Eating&quot;).event(&quot;hungry&quot;)</ins><br />
+
+<ins>+                .and().withExternal().source(&quot;Relaxing&quot;).target(&quot;Working&quot;).event(&quot;vacation_ended&quot;);</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+}</ins><br />
+
+<span class="diff">diff --git a/code/spring-sm-study/pom.xml b/code/spring-sm-study/pom.xml</span><br />
+
+<span class="index">index ed81982..a8c919f 100644</span><br />
+
+<span class="tree_minuses">--- a/code/spring-sm-study/pom.xml</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/pom.xml</span><br />
+
+<span class="two_ats">@@ -19,6 +19,8 @@</span><br />
+
+<span>         &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;</span><br />
+
+<span>         &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;</span><br />
+
+<span>         &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br />
+
+<ins>+        &lt;spring-context-version&gt;6.1.11&lt;/spring-context-version&gt;</ins><br />
+
+<ins>+        &lt;spring-statemachine-version&gt;4.0.0&lt;/spring-statemachine-version&gt;</ins><br />
+
+<span>     &lt;/properties&gt;</span><br />
+
+<span> </span><br />
+
+<span>     &lt;build&gt;</span><br />
+
+</div>
+

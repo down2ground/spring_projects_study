@@ -18,6 +18,10 @@
             
         { "input-glob": "sections/ref/*.txt", "page-flows": ["ref", "nav"], 
             "title-from-variable": "title", "code-from-variable": "code", 
+            "sort-by-variable": "SORT_ORDER" },  
+            
+        { "input-glob": "sections/sidesteps/*.txt", "page-flows": ["sidesteps", "nav"], 
+            "title-from-variable": "title", "code-from-variable": "code", 
             "sort-by-variable": "SORT_ORDER" },
             
         { "input-root": "doc_src", "output-root": "doc/content", "add-link-css": ["doc/patch.css"],
@@ -39,7 +43,8 @@
             "paths": {
                 "resource_path": "doc/",
                 "pict": "doc/pict/",
-                "patches": "doc/content/patches/"
+                "patches": "doc/content/patches/",
+                "output": "code/output/"
             }
         },
         "page-flows": {
@@ -56,7 +61,8 @@
 #                { "link": "https://add.your/link/here", "title": "GitHub", "external": true }
             ],
             "sections": { "groups": ["sidebar"] },
-            "ref": { "groups": ["sidebar"] }
+            "ref": { "groups": ["sidebar"] },
+            "sidesteps": { "groups": ["sidebar"] }
         },
         "index": {"index": {"output": "index_page.html", "title": "Index", "index-cache": "index_cache.json", 
                     "index-cache-relative": true, "letters": true, "letters-block": true,
@@ -71,6 +77,9 @@
                 "<a name=\"${1}\"></a><span class=\"refDef\">[${1}]</span>" },
             { "markers": ["git"], "replace-with":
                 "> Git commit: [`${1}`](<!--path patches-->${1}.html)\n${2}",
+                "recursive": true },
+            { "markers": ["block_source_java"], "replace-with":
+                "<div class=\"blockSrc\"><a href=\"<!--wrap_java ${1}-->\">${1}</a></div>",
                 "recursive": true }
         ],
         "wrap-code": {
@@ -78,6 +87,9 @@
                 "template": "doc_src/templates/code.html", "variables": {"noPageTitle": true}},
             "wrap_java": {"style": "java", "input-root": "code/", "output-root": "doc/content/code",
                 "template": "doc_src/templates/code.html", "variables": {"noPageTitle": true}}
-        }
+        },
+        "include-file": [
+            { "markers": ["include"], "root-dir": "code/" }
+        ]
     }
 }

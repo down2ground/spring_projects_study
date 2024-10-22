@@ -1,0 +1,82 @@
+<!--VARIABLES {"title": "Patch d4ba2edeef626adc57e4163dfea7e3e0ca5831c1"}--> 
+ 
+<strong>Commit message:</strong> 
+dependency tree regenerated
+
+ 
+<div class="patch_block">
+
+<span class="diff">diff --git a/code/spring-sm-study/dependency_tree.txt b/code/spring-sm-study/dependency_tree.txt</span><br />
+
+<span class="index">index 42e6229..39d909a 100644</span><br />
+
+<span class="tree_minuses">--- a/code/spring-sm-study/dependency_tree.txt</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/dependency_tree.txt</span><br />
+
+<span class="two_ats">@@ -20,14 +20,27 @@</span><br />
+
+<span> [INFO] </span><br />
+
+<span> [INFO] --- dependency:2.8:tree (default-cli) @ module01 ---</span><br />
+
+<span> [INFO] world.spring-sm-study:module01:jar:1.0-SNAPSHOT</span><br />
+
+<ins>+[INFO] +- org.springframework:spring-context:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |  +- org.springframework:spring-aop:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |  +- org.springframework:spring-beans:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |  +- org.springframework:spring-core:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |  |  \- org.springframework:spring-jcl:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |  +- org.springframework:spring-expression:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |  \- io.micrometer:micrometer-observation:jar:1.12.8:compile</ins><br />
+
+<ins>+[INFO] |     \- io.micrometer:micrometer-commons:jar:1.12.8:compile</ins><br />
+
+<ins>+[INFO] \- org.springframework.statemachine:spring-statemachine-core:jar:4.0.0:compile</ins><br />
+
+<ins>+[INFO]    +- org.springframework:spring-tx:jar:6.0.14:compile</ins><br />
+
+<ins>+[INFO]    +- org.springframework:spring-messaging:jar:6.0.14:compile</ins><br />
+
+<ins>+[INFO]    \- io.projectreactor:reactor-core:jar:3.5.12:compile</ins><br />
+
+<ins>+[INFO]       \- org.reactivestreams:reactive-streams:jar:1.0.4:compile</ins><br />
+
+<span> [INFO] ------------------------------------------------------------------------</span><br />
+
+<span> [INFO] Reactor Summary for spring-sm-study 1.0-SNAPSHOT:</span><br />
+
+<span> [INFO] </span><br />
+
+<del>-[INFO] spring-sm-study .................................... SUCCESS [  1.296 s]</del><br />
+
+<del>-[INFO] module01 ........................................... SUCCESS [  0.031 s]</del><br />
+
+<ins>+[INFO] spring-sm-study .................................... SUCCESS [  0.448 s]</ins><br />
+
+<ins>+[INFO] module01 ........................................... SUCCESS [  0.046 s]</ins><br />
+
+<span> [INFO] ------------------------------------------------------------------------</span><br />
+
+<span> [INFO] BUILD SUCCESS</span><br />
+
+<span> [INFO] ------------------------------------------------------------------------</span><br />
+
+<del>-[INFO] Total time:  1.626 s</del><br />
+
+<del>-[INFO] Finished at: 2024-10-20T20:58:45+02:00</del><br />
+
+<ins>+[INFO] Total time:  0.663 s</ins><br />
+
+<ins>+[INFO] Finished at: 2024-10-22T11:39:20+02:00</ins><br />
+
+<span> [INFO] ------------------------------------------------------------------------</span><br />
+
+</div>
+

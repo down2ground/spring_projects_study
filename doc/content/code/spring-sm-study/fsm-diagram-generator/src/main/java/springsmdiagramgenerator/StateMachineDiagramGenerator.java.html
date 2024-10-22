@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head><title>StateMachineDiagramGenerator.java</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../../../../../../../favicon.png"/>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../layout/more_prog_langs.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../themes/light/more_prog_langs_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../../../custom.css">
+
+<link rel="stylesheet" type="text/css" href="../../../../../../../../layout/flex.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<a 
+class="header_item "
+href="../../../../../../../../../readme.html"><img 
+class="logo_image" src="../../../../../../../../favicon.png" /></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../../../../../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../../../../../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../../../../../../../index_page.html"><img 
+class="header_image index_image" src="../../../../../../../../layout/pict/search.png" /></a>
+
+<span class="source_file inactive toggle_wide_only_inline">&lt;/&gt;</span>
+
+<img class="headerNavArrows" src="../../../../../../../../layout/pict/previous_page_h21px_inactive.png"/>
+
+<img class="headerNavArrows" src="../../../../../../../../layout/pict/next_page_h21px_inactive.png"/>
+
+<span class="headerTitle">StateMachineDiagramGenerator.java</span>
+
+</div>
+
+<div class="blockSrc">spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/StateMachineDiagramGenerator.java</div>
+
+<pre class="highlight"><code class="language-java">package springsmdiagramgenerator;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.statemachine.StateMachine;
+import org.springframework.stereotype.Component;
+import springsmstudy01.SimplestStateMachineConfiguration;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+@Component
+public class StateMachineDiagramGenerator {
+
+    @Autowired
+    private StateMachine&lt;String, String&gt; stateMachine;
+
+    public static void main(String[] args) throws Exception {
+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+                StateMachineDiagramGenerator.class,
+                SimplestStateMachineConfiguration.class)) {
+            context.getBean(StateMachineDiagramGenerator.class).generateDiagram();
+        }
+    }
+
+    public void generateDiagram() throws Exception {
+        String diagramSource = Utils.generatePlantUMLDiagramSource(stateMachine, true);
+        Files.writeString(Paths.get("../output/generated_sm_diagram.txt"), diagramSource);
+        Utils.generatePlantUMLDiagramCL("../output/generated_sm_diagram.txt", null);
+        Utils.generatePlantUMLDiagram(diagramSource, "../output/generated_sm_diagram_Lib.png");
+    }
+}
+</code></pre>
+
+<p></p>
+
+</body>
+</html>

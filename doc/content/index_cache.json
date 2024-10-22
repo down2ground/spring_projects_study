@@ -15,10 +15,56 @@
       "entry": "FSM, Spring",
       "link": "sections/spring_statemachine.html#index_entry_index_1",
       "title": "Spring Statemachine"
+    },
+    {
+      "entry": "@EnableStateMachine",
+      "link": "sections/spring_statemachine.html#index_entry_index_2",
+      "title": "Spring Statemachine"
+    },
+    {
+      "entry": "@EnableStateMachineFactory",
+      "link": "sections/spring_statemachine.html#index_entry_index_2",
+      "title": "Spring Statemachine"
+    },
+    {
+      "entry": "reactive programming",
+      "link": "sections/spring_statemachine.html#index_entry_index_3",
+      "title": "Spring Statemachine"
+    },
+    {
+      "entry": "Mono class",
+      "link": "sections/spring_statemachine.html#index_entry_index_3",
+      "title": "Spring Statemachine"
+    },
+    {
+      "entry": "StateMachineListener interface",
+      "link": "sections/spring_statemachine.html#index_entry_index_4",
+      "title": "Spring Statemachine"
     }
   ],
   "doc/content/sections/ref/references.html": [],
   "doc/content/patches/1e72c7abe7c17ed29c88256faae6072ef08c92ab.html": [],
   "doc/content/patches/7cdab81f4db827b8c5224d6113ba85a5d28d8522.html": [],
-  "doc/content/patches/ca30d155b6b0678def6f7e3cc309af0547f3e8b1.html": []
+  "doc/content/patches/ca30d155b6b0678def6f7e3cc309af0547f3e8b1.html": [],
+  "doc/content/sections/sidesteps/sidesteps.html": [
+    {
+      "entry": "FSM diagram extraction, Spring",
+      "link": "sections/sidesteps/sidesteps.html#index_entry_index_1",
+      "title": "Sidesteps"
+    },
+    {
+      "entry": "state machine diagram extraction, Spring",
+      "link": "sections/sidesteps/sidesteps.html#index_entry_index_1",
+      "title": "Sidesteps"
+    },
+    {
+      "entry": "PlantUML",
+      "link": "sections/sidesteps/sidesteps.html#index_entry_index_2",
+      "title": "Sidesteps"
+    }
+  ],
+  "doc/content/patches/24989f00a878b5ede36243cff6090392d72bfed8.html": [],
+  "doc/content/patches/080d533d22e57f2ff6dc16288098951839dc071a.html": [],
+  "doc/content/patches/d4ba2edeef626adc57e4163dfea7e3e0ca5831c1.html": [],
+  "doc/content/patches/c22be58cbf1ffdb0bf1f1a048408ca57823543fd.html": []
 }

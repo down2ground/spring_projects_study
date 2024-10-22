@@ -1,0 +1,12 @@
+| Event | State | Comment
+| ----- | :-----: | -----
+| | null | SM is not started yet
+|   | Vacation | initial state
+| hungry | Eating | 
+| full | Relaxing | 
+| tired | Sleeping | 
+| vacation_ended | Sleeping | no such transition
+| hungry | Eating | 
+| full | Relaxing | 
+| got_lazy | Relaxing | no such event
+| vacation_ended | Working | 

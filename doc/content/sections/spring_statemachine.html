@@ -60,6 +60,9 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
             </div><div class="sidebar_block">
             
             <a class="sidebar_item " href="ref/references.html">References</a>
+            </div><div class="sidebar_block">
+            
+            <a class="sidebar_item " href="sidesteps/sidesteps.html">Sidesteps</a>
             </div>
         </td></tr>
         <tr><td class="bottom valign_bottom">        </td></tr>
@@ -73,6 +76,8 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 <ul>
 <li><a href="#materials">Materials</a></li>
 <li><a href="#project-setup">Project setup</a></li>
+<li><a href="#simple-state-machine">Simple state machine</a></li>
+<li><a href="#using_state_machine_listener">Using state machine listener</a></li>
 </ul>
 </div>
 <hr />
@@ -96,18 +101,21 @@ module01 initiated</p>
 </blockquote>
 <p>The following setting in the POM will carry out the assembled artifacts from our code base
 (the variable <code>TMP_MAVEN_BUILDS_DIR</code> must be set in the system):</p>
+<div class="blockSrc">pom.xml</div>
+
 <pre class="highlight"><code class="language-xml">    ...
     &lt;build&gt;
         &lt;directory&gt;${TMP_MAVEN_BUILDS_DIR}${project.artifactId}&lt;/directory&gt;
     &lt;/build&gt;
     ...</code></pre>
-<p>The following command generates the dependency tree that shows that there are no dependencies used:</p>
+<p><a name="dependency_tree_generation"></a>
+The following command generates the dependency tree that shows that there are no dependencies used:</p>
 <pre class="highlight"><code class="language-wrapped-shell">&gt;mvn dependency:tree | find /v "[WARNING] Parameter 'localRepository'" &gt; dependency_tree.txt</code></pre>
 <p>Filtering is used to avoid some unrelated messages specific to the current local environment.
 It's very likely not required in other environments.</p>
 <p>The result is <a href="../code/spring-sm-study/dependency_tree.txt.html">here</a>.</p>
 <p>Running in the command line. In the current environment the default Java version is not 17
-so need some extra settings first:</p>
+so we need some extra settings first:</p>
 <pre class="highlight"><code class="language-wrapped-shell">&gt;set JAVA_HOME=%JAVA_17_HOME%
 
 &gt;mvn clean package
@@ -116,6 +124,163 @@ so need some extra settings first:</p>
 
 &gt;java -cp %TMP_MAVEN_BUILDS_DIR%module01\module01-1.0-SNAPSHOT.jar springsmstudy.Main
 Hello world 01!</code></pre>
+<hr />
+<h1 id="simple-state-machine">Simple state machine</h1>
+<blockquote>
+<p>Git commit: <a href="../patches/080d533d22e57f2ff6dc16288098951839dc071a.html"><code>080d533d22e57f2ff6dc16288098951839dc071a</code></a>
+simple state machine investigated</p>
+</blockquote>
+<p><a href="#dependency_tree_generation">Dependency tree regeneration</a>:</p>
+<blockquote>
+<p>Git commit: <a href="../patches/d4ba2edeef626adc57e4163dfea7e3e0ca5831c1.html"><code>d4ba2edeef626adc57e4163dfea7e3e0ca5831c1</code></a>
+dependency tree regenerated</p>
+</blockquote>
+<p>The following state machine is defined:</p>
+<div class="blockSrc"><a href="../code/spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java.html">spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java</a></div>
+
+<pre class="highlight"><code class="language-java">@Configuration
+@EnableStateMachine
+public class SimplestStateMachineConfiguration
+        extends StateMachineConfigurerAdapter&lt;String, String&gt; {
+
+    @Override
+    public void configure(StateMachineStateConfigurer&lt;String, String&gt; states)
+            throws Exception {
+        states.withStates()
+                .initial("Vacation")
+                .end("Working")
+                .states(Set.of("Eating", "Relaxing", "Sleeping"));
+    }
+
+    @Override
+    public void configure(StateMachineTransitionConfigurer&lt;String, String&gt; transitions)
+            throws Exception {
+        transitions.withExternal().source("Vacation").target("Eating").event("hungry")
+                .and().withExternal().source("Eating").target("Relaxing").event("full")
+                .and().withExternal().source("Relaxing").target("Eating").event("hungry")
+                .and().withExternal().source("Relaxing").target("Sleeping").event("tired")
+                .and().withExternal().source("Sleeping").target("Eating").event("hungry")
+                .and().withExternal().source("Relaxing").target("Working").event("vacation_ended");
+    }
+}</code></pre>
+<p><a name="index_entry_index_2"></a>
+The <code>@EnableStateMachine</code> annotation adds the <code>StateMachine&lt;?, ?&gt;</code> bean to the context. There's
+the other annotation <code>@EnableStateMachineFactory</code> that is probably intended for the cases where
+there are more than one state machines in the context. It's going to be discussed later.</p>
+<p>In the main class we autowire the state machine, start it, send to it different events and watch
+the states to which it transitions after that. The results are printed in Markdown table format:</p>
+<div class="blockSrc"><a href="../code/spring-sm-study/module01/src/main/java/springsmstudy01/Main.java.html">spring-sm-study/module01/src/main/java/springsmstudy01/Main.java</a></div>
+
+<pre class="highlight"><code class="language-java">public void runDemo() throws Exception {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("| Event | State | Comment\n");
+        stringBuilder.append("| ----- | :-----: | -----\n");
+        stringBuilder.append("| | ").append(stateMachine.getState())
+                .append(" | SM is not started yet\n");
+
+        stateMachine.startReactively().subscribe();
+        sendEventAndPrintState(stringBuilder, null, "initial state");
+
+        sendEventAndPrintState(stringBuilder, "hungry", "");
+        sendEventAndPrintState(stringBuilder, "full", "");
+        sendEventAndPrintState(stringBuilder, "tired", "");
+        sendEventAndPrintState(stringBuilder, "vacation_ended", "no such transition");
+        sendEventAndPrintState(stringBuilder, "hungry", "");
+        sendEventAndPrintState(stringBuilder, "full", "");
+        sendEventAndPrintState(stringBuilder, "got_lazy", "no such event");
+        sendEventAndPrintState(stringBuilder, "vacation_ended", "");
+
+        System.out.println(stringBuilder);
+        Files.write(Paths.get("../output/simple_sm_output.txt"),
+                stringBuilder.toString().getBytes());
+    }</code></pre>
+<p>Below is the investigation results and the state machine diagram:</p>
+<p><img src="../../../code/output/generated_sm_diagram_Lib.png" class="floatRight" /></p>
+
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th align="center">State</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td align="center">null</td>
+<td>SM is not started yet</td>
+</tr>
+<tr>
+<td></td>
+<td align="center">Vacation</td>
+<td>initial state</td>
+</tr>
+<tr>
+<td>hungry</td>
+<td align="center">Eating</td>
+<td></td>
+</tr>
+<tr>
+<td>full</td>
+<td align="center">Relaxing</td>
+<td></td>
+</tr>
+<tr>
+<td>tired</td>
+<td align="center">Sleeping</td>
+<td></td>
+</tr>
+<tr>
+<td>vacation_ended</td>
+<td align="center">Sleeping</td>
+<td>no such transition</td>
+</tr>
+<tr>
+<td>hungry</td>
+<td align="center">Eating</td>
+<td></td>
+</tr>
+<tr>
+<td>full</td>
+<td align="center">Relaxing</td>
+<td></td>
+</tr>
+<tr>
+<td>got_lazy</td>
+<td align="center">Relaxing</td>
+<td>no such event</td>
+</tr>
+<tr>
+<td>vacation_ended</td>
+<td align="center">Working</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The state machine diagram extraction is described
+<a href="sidesteps/sidesteps.html#fsm_diagram_extraction">here</a>.</p>
+<p style="clear: both;"></p>
+
+<p>Several remarks need to be made here.</p>
+<p><a name="index_entry_index_3"></a>
+The <code>stateMachine.startReactively()</code> method is used
+instead of the deprecated <code>start()</code> method. The <code>stateMachine.sendEvent()</code> method is also
+deprecated so its reactive variation is used. This methods return a
+<code>reactor.core.publisher.Mono&lt;T&gt;</code> class instance that is useful to be studied (as well as
+the <strong>reactive programming</strong> topic) but not in the scope of this Spring Statemachine study course.</p>
+<p>By default, if an event is sent that doesn't trigger any valid transition, the state machine
+ignores it without throwing an error. In our experiments above sometimes we sent such events 
+and this behavior was confirmed. See the "vacation_ended" event in the "Sleeping" state and
+the "got_lazy" event (that is not defined in the SM at all) &mdash; the SM just stayed in the
+same state. This behavior may be redefined and that is discussed in the
+<a href="#using_state_machine_listener">separate section</a>.</p>
+<hr />
+<p><a name="index_entry_index_4"></a></p>
+<h1 id="using_state_machine_listener">Using state machine listener</h1>
+<p>By default, if an event is sent that doesn't trigger any valid transition, the state machine
+ignores it without throwing an error. We can redefine how Spring Statemachine handles invalid
+or undefined events using the <code>StateMachineListener</code> interface.</p>
 <p>&nbsp;</p>
 <hr />
 
