@@ -77,8 +77,31 @@ The following state machine is defined:
 <!--block_source_java spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java-->
 
 ````java
-<!--include {"file": "spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java",
-"start-with": "@Configuration"}-->
+@Configuration
+@EnableStateMachine
+public class SimplestStateMachineConfiguration
+        extends StateMachineConfigurerAdapter<String, String> {
+
+    @Override
+    public void configure(StateMachineStateConfigurer<String, String> states)
+            throws Exception {
+        states.withStates()
+                .initial("Vacation")
+                .end("Working")
+                .states(Set.of("Eating", "Relaxing", "Sleeping"));
+    }
+
+    @Override
+    public void configure(StateMachineTransitionConfigurer<String, String> transitions)
+            throws Exception {
+        transitions.withExternal().source("Vacation").target("Eating").event("hungry")
+                .and().withExternal().source("Eating").target("Relaxing").event("full")
+                .and().withExternal().source("Relaxing").target("Eating").event("hungry")
+                .and().withExternal().source("Relaxing").target("Sleeping").event("tired")
+                .and().withExternal().source("Sleeping").target("Eating").event("hungry")
+                .and().withExternal().source("Relaxing").target("Working").event("vacation_ended");
+    }
+}
 ````
 
 <!--index ["@EnableStateMachine", "@EnableStateMachineFactory"]-->
@@ -92,8 +115,29 @@ the states to which it transitions after that. The results are printed in Markdo
 <!--block_source_java spring-sm-study/module01/src/main/java/springsmstudy01/Main.java-->
 
 ````java
-<!--include {"file": "spring-sm-study/module01/src/main/java/springsmstudy01/Main.java",
-"start-with": "    public void runDemo()", "end-marker": "// runDemo()"}-->
+public void runDemo() throws Exception {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("| Event | State | Comment\n");
+        stringBuilder.append("| ----- | :-----: | -----\n");
+        stringBuilder.append("| | ").append(stateMachine.getState())
+                .append(" | SM is not started yet\n");
+
+        stateMachine.startReactively().subscribe();
+        sendEventAndPrintState(stringBuilder, null, "initial state");
+
+        sendEventAndPrintState(stringBuilder, "hungry", "");
+        sendEventAndPrintState(stringBuilder, "full", "");
+        sendEventAndPrintState(stringBuilder, "tired", "");
+        sendEventAndPrintState(stringBuilder, "vacation_ended", "no such transition");
+        sendEventAndPrintState(stringBuilder, "hungry", "");
+        sendEventAndPrintState(stringBuilder, "full", "");
+        sendEventAndPrintState(stringBuilder, "got_lazy", "no such event");
+        sendEventAndPrintState(stringBuilder, "vacation_ended", "");
+
+        System.out.println(stringBuilder);
+        Files.write(Paths.get("../output/simple_sm_output.txt"),
+                stringBuilder.toString().getBytes());
+    }
 ````
 
 Below is the investigation results and the state machine diagram:
@@ -124,13 +168,78 @@ same state. This behavior may be redefined and that is discussed in the
 [separate section](#using_state_machine_listener).
 
 ----------------------------------------------------------------------------------------------------
-<!--index ["StateMachineListener interface"]-->
+<!--index ["StateMachineListener interface", "event listener", "listener, events"]-->
 # Using state machine listener {#using_state_machine_listener}
 
 By default, if an event is sent that doesn't trigger any valid transition, the state machine
 ignores it without throwing an error. We can redefine how Spring Statemachine handles invalid
 or undefined events using the `StateMachineListener` interface.
 
+
+## Simple implementation
+
+Following is a simple `StateMachineListener` implementation that does not change the SM behavior
+but just prints the information:
+
+<!--git ["56e33bcf8c375cf8b9c9dc3d9a59c6376bd42312", "simple SM listener added"]-->
+
+Here's the listener class:
+
+<!--block_source_java spring-sm-study/module01/src/main/java/springsmstudy01/CustomStateMachineListener.java-->
+
+````java
+public class CustomStateMachineListener<S, E> extends StateMachineListenerAdapter<S, E> {
+
+    @Override
+    public void eventNotAccepted(Message<E> event) {
+        System.out.println("Event not accepted: " + event.getPayload());
+    }
+
+    @Override
+    public void stateChanged(State<S, E> from, State<S, E> to) {
+        System.out.println("State changed from " + getIdOrNull(from) + " to " + getIdOrNull(to));
+    }
+
+    private S getIdOrNull(State<S, E> state) {
+        return state == null ? null : state.getId();
+    }
+}
+
+````
+
+Here's how it's added to the state machine:
+
+<!--block_source_java
+spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java-->
+
+````java
+@Configuration
+@EnableStateMachine
+public class SimplestStateMachineConfiguration
+        extends StateMachineConfigurerAdapter<String, String> {
+    ...
+    @Override
+    public void configure(StateMachineConfigurationConfigurer<String, String> config)
+            throws Exception {
+        config.withConfiguration()
+                .listener(new CustomStateMachineListener<>());
+    }
+}
+````
+
+Here's the output it gives:
+
+````
+State changed from null to Vacation
+State changed from Vacation to Eating
+State changed from Eating to Relaxing
+State changed from Relaxing to Sleeping
+Event not accepted: vacation_ended
+State changed from Sleeping to Eating
+State changed from Eating to Relaxing
+Event not accepted: got_lazy
+State changed from Relaxing to Working
+````
 
 
 

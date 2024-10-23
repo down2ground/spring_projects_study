@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Patch 56e33bcf8c375cf8b9c9dc3d9a59c6376bd42312</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../patch.css">
+<link rel="stylesheet" type="text/css" href="../../layout/flex.css">
+<link rel="stylesheet" type="text/css" href="../../custom.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<a 
+class="header_item "
+href="../../../readme.html"><img 
+class="logo_image" src="../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../index_page.html"><img 
+class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a><a 
+class="header_item toggle_wide_only_inline"
+href="https://github.com/down2ground/spring_projects_study"><span class="">GitHub</span></a>
+<a href="../../../doc_src/patches/56e33bcf8c375cf8b9c9dc3d9a59c6376bd42312.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+
+<img class="headerNavArrows" src="../../layout/pict/previous_page_h21px_inactive.png"
+alt="No back">
+
+<img class="headerNavArrows" src="../../layout/pict/next_page_h21px_inactive.png"
+alt="No next">
+
+<span class="headerTitle">Patch 56e33bcf8c375cf8b9c9dc3d9a59c6376bd42312</span>
+
+</div>
+
+<h1 style="width: unset; max-width: unset;">Patch 56e33bcf8c375cf8b9c9dc3d9a59c6376bd42312</h1>
+
+<p><strong>Commit message:</strong> 
+simple SM listener added</p>
+<div class="patch_block">
+
+<span class="diff">diff --git a/code/spring-sm-study/module01/src/main/java/springsmstudy01/CustomStateMachineListener.java b/code/spring-sm-study/module01/src/main/java/springsmstudy01/CustomStateMachineListener.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..625019a</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/module01/src/main/java/springsmstudy01/CustomStateMachineListener.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,22 @@</span><br />
+
+<ins>+package springsmstudy01;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import org.springframework.messaging.Message;</ins><br />
+
+<ins>+import org.springframework.statemachine.listener.StateMachineListenerAdapter;</ins><br />
+
+<ins>+import org.springframework.statemachine.state.State;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+public class CustomStateMachineListener&lt;S, E&gt; extends StateMachineListenerAdapter&lt;S, E&gt; {</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    @Override</ins><br />
+
+<ins>+    public void eventNotAccepted(Message&lt;E&gt; event) {</ins><br />
+
+<ins>+        System.out.println(&quot;Event not accepted: &quot; + event.getPayload());</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    @Override</ins><br />
+
+<ins>+    public void stateChanged(State&lt;S, E&gt; from, State&lt;S, E&gt; to) {</ins><br />
+
+<ins>+        System.out.println(&quot;State changed from &quot; + getIdOrNull(from) + &quot; to &quot; + getIdOrNull(to));</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    private S getIdOrNull(State&lt;S, E&gt; state) {</ins><br />
+
+<ins>+        return state == null ? null : state.getId();</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+}</ins><br />
+
+<span class="diff">diff --git a/code/spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java b/code/spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java</span><br />
+
+<span class="index">index 55e318f..f0295a2 100644</span><br />
+
+<span class="tree_minuses">--- a/code/spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java</span><br />
+
+<span class="tree_pluses">+++ b/code/spring-sm-study/module01/src/main/java/springsmstudy01/SimplestStateMachineConfiguration.java</span><br />
+
+<span class="two_ats">@@ -3,6 +3,7 @@ package springsmstudy01;</span><br />
+
+<span> import org.springframework.context.annotation.Configuration;</span><br />
+
+<span> import org.springframework.statemachine.config.EnableStateMachine;</span><br />
+
+<span> import org.springframework.statemachine.config.StateMachineConfigurerAdapter;</span><br />
+
+<ins>+import org.springframework.statemachine.config.builders.StateMachineConfigurationConfigurer;</ins><br />
+
+<span> import org.springframework.statemachine.config.builders.StateMachineStateConfigurer;</span><br />
+
+<span> import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;</span><br />
+
+<span> </span><br />
+
+<span class="two_ats">@@ -32,4 +33,11 @@ public class SimplestStateMachineConfiguration</span><br />
+
+<span>                 .and().withExternal().source(&quot;Sleeping&quot;).target(&quot;Eating&quot;).event(&quot;hungry&quot;)</span><br />
+
+<span>                 .and().withExternal().source(&quot;Relaxing&quot;).target(&quot;Working&quot;).event(&quot;vacation_ended&quot;);</span><br />
+
+<span>     }</span><br />
+
+<ins>+</ins><br />
+
+<ins>+    @Override</ins><br />
+
+<ins>+    public void configure(StateMachineConfigurationConfigurer&lt;String, String&gt; config)</ins><br />
+
+<ins>+            throws Exception {</ins><br />
+
+<ins>+        config.withConfiguration()</ins><br />
+
+<ins>+                .listener(new CustomStateMachineListener&lt;&gt;());</ins><br />
+
+<ins>+    }</ins><br />
+
+<span> }</span><br />
+
+</div>
+
+<p></p>
+
+<p>&nbsp;</p>
+
+</body>
+</html>

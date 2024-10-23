@@ -40,6 +40,16 @@
       "entry": "StateMachineListener interface",
       "link": "sections/spring_statemachine.html#index_entry_index_4",
       "title": "Spring Statemachine"
+    },
+    {
+      "entry": "event listener",
+      "link": "sections/spring_statemachine.html#index_entry_index_4",
+      "title": "Spring Statemachine"
+    },
+    {
+      "entry": "listener, events",
+      "link": "sections/spring_statemachine.html#index_entry_index_4",
+      "title": "Spring Statemachine"
     }
   ],
   "doc/content/sections/ref/references.html": [],
@@ -66,5 +76,6 @@
   "doc/content/patches/24989f00a878b5ede36243cff6090392d72bfed8.html": [],
   "doc/content/patches/080d533d22e57f2ff6dc16288098951839dc071a.html": [],
   "doc/content/patches/d4ba2edeef626adc57e4163dfea7e3e0ca5831c1.html": [],
-  "doc/content/patches/c22be58cbf1ffdb0bf1f1a048408ca57823543fd.html": []
+  "doc/content/patches/c22be58cbf1ffdb0bf1f1a048408ca57823543fd.html": [],
+  "doc/content/patches/56e33bcf8c375cf8b9c9dc3d9a59c6376bd42312.html": []
 }

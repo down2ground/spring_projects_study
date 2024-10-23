@@ -30,6 +30,8 @@ state machine configuration, so we need to create it manually. There are two pos
 We are going to start with the runtime introspection approach since it's simpler to implement
 and captures the actual state machine configuration at runtime.
 
+[PlantUML](#plantuml_setup) is going to be used for visualization.
+
 
 ## Implementation
 
@@ -80,9 +82,27 @@ Here's the main class:
 spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/StateMachineDiagramGenerator.java-->
 
 ````java
-<!--include {"file":
-"spring-sm-study/fsm-diagram-generator/src/main/java/springsmdiagramgenerator/StateMachineDiagramGenerator.java",
-"start-with": "@Component"}-->
+@Component
+public class StateMachineDiagramGenerator {
+
+    @Autowired
+    private StateMachine<String, String> stateMachine;
+
+    public static void main(String[] args) throws Exception {
+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+                StateMachineDiagramGenerator.class,
+                SimplestStateMachineConfiguration.class)) {
+            context.getBean(StateMachineDiagramGenerator.class).generateDiagram();
+        }
+    }
+
+    public void generateDiagram() throws Exception {
+        String diagramSource = Utils.generatePlantUMLDiagramSource(stateMachine, true);
+        Files.writeString(Paths.get("../output/generated_sm_diagram.txt"), diagramSource);
+        Utils.generatePlantUMLDiagramCL("../output/generated_sm_diagram.txt", null);
+        Utils.generatePlantUMLDiagram(diagramSource, "../output/generated_sm_diagram_Lib.png");
+    }
+}
 ````
 
 It autowires the state machine that we want to investigate, then it extracts the PlantUML
