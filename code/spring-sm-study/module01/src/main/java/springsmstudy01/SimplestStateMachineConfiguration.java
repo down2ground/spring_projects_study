@@ -3,6 +3,7 @@ package springsmstudy01;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.statemachine.config.EnableStateMachine;
 import org.springframework.statemachine.config.StateMachineConfigurerAdapter;
+import org.springframework.statemachine.config.builders.StateMachineConfigurationConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineStateConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;
 
@@ -31,5 +32,12 @@ public class SimplestStateMachineConfiguration
                 .and().withExternal().source("Relaxing").target("Sleeping").event("tired")
                 .and().withExternal().source("Sleeping").target("Eating").event("hungry")
                 .and().withExternal().source("Relaxing").target("Working").event("vacation_ended");
+    }
+
+    @Override
+    public void configure(StateMachineConfigurationConfigurer<String, String> config)
+            throws Exception {
+        config.withConfiguration()
+                .listener(new CustomStateMachineListener<>());
     }
 }
