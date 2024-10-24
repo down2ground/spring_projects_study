@@ -253,7 +253,7 @@ State changed from Relaxing to Working
     ````java
     @PostConstruct
     public void init() {
-        stateMachine.addStateListener(new CustomStateMachineListener<>(stateMachine));
+        stateMachine.addStateListener(new CustomStateMachineListener<>());
     }
     ````
     

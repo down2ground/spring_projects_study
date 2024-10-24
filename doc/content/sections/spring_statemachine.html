@@ -350,7 +350,7 @@ logic making the behavior more unpredictable and less maintainable.</p>
 is used there, we may use the <code>@PostConstruct</code> annotation:</p>
 <pre class="highlight"><code class="language-java">@PostConstruct
 public void init() {
-    stateMachine.addStateListener(new CustomStateMachineListener&lt;&gt;(stateMachine));
+    stateMachine.addStateListener(new CustomStateMachineListener&lt;&gt;());
 }</code></pre>
 <p>In our example project the following dependency will need to be added:</p>
 <pre class="highlight"><code class="language-xml">&lt;dependency&gt;
