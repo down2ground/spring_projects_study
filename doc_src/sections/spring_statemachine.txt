@@ -241,6 +241,35 @@ Event not accepted: got_lazy
 State changed from Relaxing to Working
 ````
 
+!!! note
+    This is questionable to set the SM listener in the SM configuration. It looks logical
+    as the listener belongs to the SM. On the other hand, the intrinsic SM behavior includes
+    the states and transitions between them, while the SM listeners may interfere into this 
+    logic making the behavior more unpredictable and less maintainable.
+    
+    In this example an alternative may be adding the listener in the `Main` class. As autowiring
+    is used there, we may use the `@PostConstruct` annotation:
+    
+    ````java
+    @PostConstruct
+    public void init() {
+        stateMachine.addStateListener(new CustomStateMachineListener<>(stateMachine));
+    }
+    ````
+    
+    In our example project the following dependency will need to be added:
+    
+    ````xml
+    <dependency>
+        <groupId>jakarta.annotation</groupId>
+        <artifactId>jakarta.annotation-api</artifactId>
+        <version>${jakarta-annotation-version}</version>
+    </dependency>
+    ````
+    
+    In a Spring Boot application it will most likely already exist.
+
+
 
 
 

@@ -208,7 +208,7 @@ Working -> [*]
 @enduml
 ````
 
-it generated the diagram show in the picture.
+it generated the diagram shown in the picture.
 
 Though there was a problem: At the beginning the PlantUML library couldn't find the Graphviz
 `dot` executable. It was solved by setting the **`GRAPHVIZ_DOT`** environment variable with the 

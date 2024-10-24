@@ -340,6 +340,26 @@ State changed from Sleeping to Eating
 State changed from Eating to Relaxing
 Event not accepted: got_lazy
 State changed from Relaxing to Working</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is questionable to set the SM listener in the SM configuration. It looks logical
+as the listener belongs to the SM. On the other hand, the intrinsic SM behavior includes
+the states and transitions between them, while the SM listeners may interfere into this 
+logic making the behavior more unpredictable and less maintainable.</p>
+<p>In this example an alternative may be adding the listener in the <code>Main</code> class. As autowiring
+is used there, we may use the <code>@PostConstruct</code> annotation:</p>
+<pre class="highlight"><code class="language-java">@PostConstruct
+public void init() {
+    stateMachine.addStateListener(new CustomStateMachineListener&lt;&gt;(stateMachine));
+}</code></pre>
+<p>In our example project the following dependency will need to be added:</p>
+<pre class="highlight"><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;jakarta.annotation&lt;/groupId&gt;
+    &lt;artifactId&gt;jakarta.annotation-api&lt;/artifactId&gt;
+    &lt;version&gt;${jakarta-annotation-version}&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+<p>In a Spring Boot application it will most likely already exist.</p>
+</div>
 <p>&nbsp;</p>
 <hr />
 
