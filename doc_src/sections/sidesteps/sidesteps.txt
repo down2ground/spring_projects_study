@@ -12,7 +12,8 @@ Chat GPT [<!--ref chat_gpt-->] was used to investigate and implement this soluti
 ## Considerations
 
 Spring State Machine doesn't have a built-in tool to directly generate UML diagrams from our
-state machine configuration, so we need to create it manually. There are two possible approaches:
+state machine configuration [<!--ref output_sm_diagram_ssmi-->], so we need to create it manually.
+There are two possible approaches:
 
 - **Parsing the FSM configuration Java code** using tools like JavaParser or other static analysis
     libraries. This can be tricky, especially with complex configurations, use of variables,
@@ -31,6 +32,14 @@ We are going to start with the runtime introspection approach since it's simpler
 and captures the actual state machine configuration at runtime.
 
 [PlantUML](#plantuml_setup) is going to be used for visualization.
+
+Also see [<!--ref ssm_chart_dumper_gh-->] about a similar project that tries to generate Spring
+state machine diagrams in formats:
+
+- [Eclipse MDT UML2](https://projects.eclipse.org/projects/modeling.mdt.uml2)
+    (used by [Papyrus UML](https://eclipse.org/papyrus/)
+    and [UML Designer](http://www.umldesigner.org/)) (incomplete, under development)
+- [SCXML](https://www.w3.org/TR/scxml/) (incomplete, under development)
 
 
 ## Implementation

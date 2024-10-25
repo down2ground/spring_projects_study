@@ -1,9 +1,28 @@
 <!--VARIABLES {"title": "References", "SORT_ORDER": "020", "code": "refs"}-->
 
+[TOC]
+
+----------------------------------------------------------------------------------------------------
+# Common
+
 <!--refdef spring_home--> Spring official site: <https://spring.io/>
+
+<!--refdef chat_gpt--> ChatGPT: <https://chat.openai.com/>
+
+----------------------------------------------------------------------------------------------------
+# State machine
 
 <!--refdef spring_sm_guide_bae--> Baeldung:
 [A Guide to the Spring State Machine Project](https://www.baeldung.com/spring-state-machine)
+
+<!--refdef output_sm_diagram_ssmi--> Spring Statemachine project: Issues:
+[Output state diagram #70](https://github.com/spring-projects/spring-statemachine/issues/70)
+
+<!--refdef ssm_chart_dumper_gh--> Github:
+<https://github.com/DeveloperUtils/spring-state-machine-chart-dumper>
+
+
+## Videos
 
 <!--refdef spring_sm_get_started_sfg_yt--> Youtube:
 [Getting Started with Spring State Machine](https://youtu.be/A-dVgRV5-Bw?si=vrUMcamH17KRK2rf),    
@@ -15,6 +34,7 @@ Dec 7, 2019, duration 1:36:48
 by [SpringDeveloper](https://www.youtube.com/@SpringSourceDev),    
 Apr 25, 2018, duration 59:45
 
-<!--refdef chat_gpt--> ChatGPT: <https://chat.openai.com/>
+
+
 
 

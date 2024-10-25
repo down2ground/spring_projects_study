@@ -92,7 +92,8 @@ alt="No next">
 <p>Chat GPT [<a class="ref" href="../ref/references.html#chat_gpt">chat_gpt</a>] was used to investigate and implement this solution.</p>
 <h2 id="considerations">Considerations</h2>
 <p>Spring State Machine doesn't have a built-in tool to directly generate UML diagrams from our
-state machine configuration, so we need to create it manually. There are two possible approaches:</p>
+state machine configuration [<a class="ref" href="../ref/references.html#output_sm_diagram_ssmi">output_sm_diagram_ssmi</a>], so we need to create it manually.
+There are two possible approaches:</p>
 <ul>
 <li><strong>Parsing the FSM configuration Java code</strong> using tools like JavaParser or other static analysis
     libraries. This can be tricky, especially with complex configurations, use of variables,
@@ -110,6 +111,14 @@ state machine configuration, so we need to create it manually. There are two pos
 <p>We are going to start with the runtime introspection approach since it's simpler to implement
 and captures the actual state machine configuration at runtime.</p>
 <p><a href="#plantuml_setup">PlantUML</a> is going to be used for visualization.</p>
+<p>Also see [<a class="ref" href="../ref/references.html#ssm_chart_dumper_gh">ssm_chart_dumper_gh</a>] about a similar project that tries to generate Spring
+state machine diagrams in formats:</p>
+<ul>
+<li><a href="https://projects.eclipse.org/projects/modeling.mdt.uml2">Eclipse MDT UML2</a>
+    (used by <a href="https://eclipse.org/papyrus/">Papyrus UML</a>
+    and <a href="http://www.umldesigner.org/">UML Designer</a>) (incomplete, under development)</li>
+<li><a href="https://www.w3.org/TR/scxml/">SCXML</a> (incomplete, under development)</li>
+</ul>
 <h2 id="implementation">Implementation</h2>
 <blockquote>
 <p>Git commit: <a href="../../patches/c22be58cbf1ffdb0bf1f1a048408ca57823543fd.html"><code>c22be58cbf1ffdb0bf1f1a048408ca57823543fd</code></a>
